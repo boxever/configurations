@@ -1,0 +1,156 @@
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" namespace="http://camunda.org/schema/1.0/dmn" name="definitions" id="definitions"><decision id="af25fb09-cdac-4697-8513-34b2cb3c7ce2" name="GetPageViews"><extensionElements><biodi:bounds x="1800" y="1200" width="300" height="100"/><biodi:edge source="f0126605-6052-4c00-9f94-4cac0769f46e"/></extensionElements><variable id="variable6352a3ed-b754-4b57-984d-6e1960724cc7" typeRef="map" name="getPageViews"/><informationRequirement><requiredInput href="#f0126605-6052-4c00-9f94-4cac0769f46e"/></informationRequirement><literalExpression id="literal6352a3ed-b754-4b57-984d-6e1960724cc7" expressionLanguage="javascript"><text><![CDATA[(function () {
+    
+    var daysToAgeOutSession = "[[Number of days to include in page view calculations | Number]]"
+    print(daysToAgeOutSession);
+    var page1 = "[[Page One name | String]]"
+    var page2 = "[[Page Two Name | String]]"
+    var page3 = "[[Page Three Name | String]]"
+    var page4 = "[[Page Four Name | String]]"
+    var page5 = "[[Page Five Name | String]]"
+    var page6 = "[[Page Six Name | String]]"
+    var page7 = "[[Page Seven Name | String]]"
+    var page8 = "[[Page Eight Name | String]]"
+    var page9 = "[[Page Nine Name | String]]"
+    var page10 = "[[Page Ten Name | String]]"
+    
+    var pageCounters = {
+        page1count: 0,
+        page2count: 0,
+        page3count: 0,
+        page4count: 0,
+        page5count: 0,
+        page6count: 0,
+        page7count: 0,
+        page8count: 0,
+        page9count: 0,
+        page10count: 0
+    }
+    //function to return a list of the top pages that were viewed 
+    function getMaxPageViewed() {
+        maxList = [];
+        max = 0;
+        for (const page in pageCounters) {
+            if (pageCounters[page] > max) {
+                maxList = [];
+                maxList.push(page);
+                max = pageCounters[page];
+            }
+            else if (pageCounters[page] == max) {
+                maxList.push(page);
+            }
+        }
+        return maxList;
+    }
+    //return the most viewed page from the maxList
+    function getMostViewedPage() {
+        var maxPage = getMaxPageViewed(); 
+        var mostViewedPageValue;
+        //if there is only one max page value in the list return it.
+        if ( maxPage.length == 1 ) {
+            return maxPage[0]
+        }
+        //if all 10 values appear in the list it means none of the pages were viewed so return a default value
+        else if ( maxPage.length == 10 ) {
+            return "default"
+        }
+        //if more than 1 page in the list get the last one that was viewed by iterating through sessions.
+        else {
+            for (var i = 0; i < guest.sessions.length; i++) {
+                var currentSession = guest.sessions[i];
+                for (var j = 0; j < currentSession.events.length; j++) {
+                    var currentEvent = currentSession.events[j];
+                    if (currentEvent.type === "VIEW" && currentEvent.arbitraryData) {
+                        switch (currentEvent.arbitraryData.page) {
+                            case page1: return "page1count";break;
+                            case page2: return "page2count";break;
+                            case page3: return "page3count";break;
+                            case page4: return "page4count";break;
+                            case page5: return "page5count";break;
+                            case page6: return "page6count";break;
+                            case page7: return "page7count";break;
+                            case page8: return "page8count";break;
+                            case page9: return "page9count";break;
+                            case page10: return "page10count";break;
+                        }
+                    }                                                                                                                                      
+                }  
+            }
+        }
+    }
+    //function to get the view events from guests session exluding any before the date and increment the page counters.
+    function getPageFrequencies() {
+        //date to exclude sessions before
+        var ageOutSessionsDate = new Date(new Date().setDate(new Date().getDate() - daysToAgeOutSession));
+        
+        for (var i = 0; i < guest.sessions.length; i++) {
+            var currentSession = guest.sessions[i];
+            if (Date.parse(currentSession.createdAt) < ageOutSessionsDate) {
+                break;
+            }
+            for (var j = 0; j < currentSession.events.length; j++) {
+                var currentEvent = currentSession.events[j];
+                // If current page view is equal to the page to check increment counter
+                if (currentEvent.type === "VIEW" && currentEvent.arbitraryData){
+                    switch (currentEvent.arbitraryData.page) {
+                        case page1: pageCounters["page1count"]++;break;
+                        case page2: pageCounters["page2count"]++;break;
+                        case page3: pageCounters["page3count"]++;break;
+                        case page4: pageCounters["page4count"]++;break;
+                        case page5: pageCounters["page5count"]++;break;
+                        case page6: pageCounters["page6count"]++;break;
+                        case page7: pageCounters["page7count"]++;break;
+                        case page8: pageCounters["page8count"]++;break;
+                        case page9: pageCounters["page9count"]++;break;
+                        case page10: pageCounters["page10count"]++;break;
+                    }
+                }
+            }
+        }
+    }
+    
+    getPageFrequencies();
+    var mostViewedPageCountValue = getMostViewedPage();
+    var mostViewedPage ="";
+    switch (mostViewedPageCountValue) {
+        case "page1count": mostViewedPage = page1; break;
+        case "page2count": mostViewedPage = page2; break;
+        case "page3count": mostViewedPage = page3; break;
+        case "page4count": mostViewedPage = page4; break;
+        case "page5count": mostViewedPage = page5; break;
+        case "page6count": mostViewedPage = page6; break;
+        case "page7count": mostViewedPage = page7; break;
+        case "page8count": mostViewedPage = page8; break;
+        case "page9count": mostViewedPage = page9; break;
+        case "page10count": mostViewedPage = page10; break;
+    }
+    
+    //map to be sent to the decision table - sample output will be:
+    //   "getPageViews": {
+    //         "mostViewedPage": "page3DummyValue",
+    //         "page1name": "page1DummyValue",
+    //         "page2name": "page2DummyValue",
+    //         "page3name": "page3DummyValue",
+    //         "page4name": "page4DummyValue",
+    //         "page5name": "",
+    //         "page6name": "",
+    //         "page7name": "",
+    //         "page8name": "",
+    //         "page9name": "",
+    //         "page10name": ""
+    //       }
+    return {
+        mostViewedPage: mostViewedPage,
+        page1name:page1,
+        page2name:page2,
+        page3name:page3,
+        page4name:page4,
+        page5name:page5,
+        page6name:page6,
+        page7name:page7,
+        page8name:page8,
+        page9name:page9,
+        page10name:page10
+    };
+    
+    
+})();]]></text></literalExpression></decision><decision id="df70f672-8ccd-44a3-82f3-311c1e6fb492" name="Results"><extensionElements><biodi:bounds x="1800" y="1000" width="300" height="100"/><biodi:edge source="af25fb09-cdac-4697-8513-34b2cb3c7ce2"/></extensionElements><informationRequirement><requiredDecision href="#af25fb09-cdac-4697-8513-34b2cb3c7ce2"/></informationRequirement><decisionTable hitPolicy="FIRST"><input id="string0841919d-bda5-4dc0-a77c-c17f59c2f649" label="Page Names" camunda:inputVariable=""><inputExpression typeRef="string"><text>getPageViews.mostViewedPage</text></inputExpression></input><output id="string1fcebbe3-5898-4c93-8a6a-4029ca9c3ae6" label="Output CTA" name="outputCTA" typeRef="string"/><output id="string6c19eaf7-3723-4e9a-8241-5a3312975b7b" label="Output ImageURL" name="imageURL" typeRef="string"/><output id="string25639039-47a1-4e9b-a67b-2849bfa4b4fa" label="Output Text" name="outputText" typeRef="string"/><output id="string41229b04-f9e1-4ae5-b7e6-974a18f12881" label="Output CTA URL" name="outputCTAURL" typeRef="string"/><rule id="Results_0"><inputEntry id="inputa7983437-c922-43ad-88bf-5c8f6c82c96d"><text><![CDATA[getPageViews.page1name]]></text></inputEntry><outputEntry id="output12c8f2e1-1868-4e12-b17c-2ee558c65ead"><text><![CDATA["Click here to find out more"]]></text></outputEntry><outputEntry id="output89583360-6aaf-4a5a-8626-7b91f3e3a270"><text><![CDATA["https://www.boxever.com"]]></text></outputEntry><outputEntry id="output8d804eff-431b-488a-9ace-c5d2f9081ff0"><text><![CDATA["Amazing offers for a limited time only"]]></text></outputEntry><outputEntry id="outputf1af8d20-17ac-44d0-ba1d-afe68d0830b3"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_1"><inputEntry id="input7a28382e-d5f0-465a-8f2f-8b22e3b32c64"><text><![CDATA[getPageViews.page2name]]></text></inputEntry><outputEntry id="output0fa954a5-7742-4f09-be8d-73ad7ef76d97"><text><![CDATA["Click here to purchase"]]></text></outputEntry><outputEntry id="output724c1dc1-ba26-4bf0-b298-8be279ec63db"><text><![CDATA["https://www.boxever.com"]]></text></outputEntry><outputEntry id="outputeb2879ed-3e4e-466e-bf72-8552f78e5c35"><text><![CDATA["This offer is what you are looking for"]]></text></outputEntry><outputEntry id="outputa541673c-c193-4503-889e-02230cf699d6"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_2"><inputEntry id="inputce911811-93a8-4721-b78c-9e6c1889e361"><text><![CDATA[getPageViews.page3name]]></text></inputEntry><outputEntry id="output59832a52-29f2-4a72-b903-7ac6f1095ea4"><text><![CDATA[]]></text></outputEntry><outputEntry id="output17a70af7-9e85-436e-9114-0b74533dd045"><text><![CDATA[]]></text></outputEntry><outputEntry id="output69fdabab-84a4-4097-8f46-c6a0e93e4b9c"><text><![CDATA[]]></text></outputEntry><outputEntry id="outpute0224932-889e-4bb0-82d5-f853bb9f052d"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_3"><inputEntry id="input07593789-b12a-4aca-9125-57301b77915c"><text><![CDATA[getPageViews.page4name]]></text></inputEntry><outputEntry id="outputa7060614-a10d-4c57-b8ae-2ef466edf197"><text><![CDATA[]]></text></outputEntry><outputEntry id="outpute1f6d57c-e594-46d8-a1c9-191834c9e771"><text><![CDATA[]]></text></outputEntry><outputEntry id="output3cfced21-2fba-43a2-a2d0-12a2c8b2f38f"><text><![CDATA[]]></text></outputEntry><outputEntry id="outputfee80b4d-0f9c-4dd9-b85c-dd09e761e21b"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_4"><inputEntry id="input4c89ff8c-230c-4335-9965-aa2953013622"><text><![CDATA[getPageViews.page5name]]></text></inputEntry><outputEntry id="output8e16b5fb-4f55-4bd7-ad08-0a8644537134"><text><![CDATA[]]></text></outputEntry><outputEntry id="outputbd47b3e3-39de-4f6c-829b-7cb8a264b8f0"><text><![CDATA[]]></text></outputEntry><outputEntry id="output36b9514a-083d-42d8-80ca-7fca97cc965e"><text><![CDATA[]]></text></outputEntry><outputEntry id="outputad7724cc-7d1e-4481-942b-2c1b702ff8d7"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_5"><inputEntry id="inputce3bdf17-c19d-40d8-8c73-21f0876aefde"><text><![CDATA[getPageViews.page6name]]></text></inputEntry><outputEntry id="output3e1f5698-b45b-4d20-8089-7cdeb80855f4"><text><![CDATA[]]></text></outputEntry><outputEntry id="output530db46b-78c5-4b27-9aa8-e8db9c643138"><text><![CDATA[]]></text></outputEntry><outputEntry id="output6d589007-a99e-4d48-98a9-5461f2e11b0e"><text><![CDATA[]]></text></outputEntry><outputEntry id="output443f3eee-451b-4c9a-bd34-f9970ddcd8a0"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_6"><inputEntry id="input348b4375-7e35-4d6b-bf94-c88b856d85a0"><text><![CDATA[getPageViews.page7name]]></text></inputEntry><outputEntry id="output98a1aa5c-1bde-456f-95e7-190ecb1c5643"><text><![CDATA[]]></text></outputEntry><outputEntry id="outputc99c94a2-4ab9-4cd0-8ef0-6331f0ba05c9"><text><![CDATA[]]></text></outputEntry><outputEntry id="output7ad6f671-5ce0-4c44-bd70-4698b03b6901"><text><![CDATA[]]></text></outputEntry><outputEntry id="output9ae82183-74aa-48a9-8a7f-17fa08dffe44"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_7"><inputEntry id="input969ab532-2e5d-44e8-8756-50c6ba8d233a"><text><![CDATA[getPageViews.page8name]]></text></inputEntry><outputEntry id="output0142eb36-319b-4fbd-b8ed-19533bcbc8af"><text><![CDATA[]]></text></outputEntry><outputEntry id="output1b74af95-affb-433e-9143-dd15adfc84bd"><text><![CDATA[]]></text></outputEntry><outputEntry id="output34eb8719-ec16-489f-b372-8f2ed2264be4"><text><![CDATA[]]></text></outputEntry><outputEntry id="output414f1ade-f762-45be-9cab-c8a66ddac3a0"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_8"><inputEntry id="input91e5bb7f-495e-42bf-adc1-746122dd274a"><text><![CDATA[getPageViews.page9name]]></text></inputEntry><outputEntry id="output0a286030-fec0-4a82-a7cd-21ae71dc5f79"><text><![CDATA[]]></text></outputEntry><outputEntry id="output23c6903b-d1af-4f01-bec8-68ba6c45b2a8"><text><![CDATA[]]></text></outputEntry><outputEntry id="outputb43b1feb-5948-45db-8192-e7c7ff4154fa"><text><![CDATA[]]></text></outputEntry><outputEntry id="outputde55f40e-a2ad-4299-bbfa-ba85c7105ba9"><text><![CDATA[]]></text></outputEntry></rule><rule id="Results_9"><inputEntry id="inputcb07dda2-03a9-4d5c-9f3d-a2534e3d962c"><text><![CDATA[getPageViews.page10name]]></text></inputEntry><outputEntry id="output40d26125-7876-4003-a152-211a103b4200"><text><![CDATA[]]></text></outputEntry><outputEntry id="outputbf4c174d-119d-4305-99a9-88916783cd0c"><text><![CDATA[]]></text></outputEntry><outputEntry id="output355c2035-fc3b-4352-9a69-4ca65ab51a20"><text><![CDATA[]]></text></outputEntry><outputEntry id="output10cad153-f4ff-4d1d-ac4f-5d275408d290"><text><![CDATA[]]></text></outputEntry></rule></decisionTable></decision><inputData id="f0126605-6052-4c00-9f94-4cac0769f46e" name="Guest"><extensionElements><biodi:bounds x="1800" y="1400" width="300" height="100"/></extensionElements></inputData></definitions>

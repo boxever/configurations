@@ -1,0 +1,117 @@
+/*
+[[ Highlight Colour | colour | #607d8b ]]
+[[ Background Colour | colour | #eeeeee ]]
+[[ Text Colour | colour | #000 ]]
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri|{order: 5}]];
+*/
+
+#bx-tooltip-card {
+    position: absolute;
+    bottom: -1000px;
+    width: 250px;
+    height: 100px;
+    z-index: 999999;
+    margin-bottom: 0;
+    border-radius: 4px;
+    background-color: [[ Background Colour ]];
+    max-width:90%;
+    font-family:[[Font]];
+    color: [[ Text Colour ]];
+}
+
+#bx-tooltip-card.left:before {
+    content: "";
+    position: absolute;
+    top: 35px;
+    right: -30px;
+    z-index: 999999;
+    border: solid 15px transparent;
+    border-left-color: [[ Background Colour ]];
+}
+
+#bx-tooltip-card.right:before {
+    content: "";
+    position: absolute;
+    top: 35px;
+    left: -30px;
+    z-index: 999999;
+    border: solid 15px transparent;
+    border-right-color: [[ Background Colour ]];
+}
+
+#bx-tooltip-card.top:before {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 110px;
+    z-index: 999999;
+    border: solid 15px transparent;
+    border-top-color: [[ Background Colour ]];
+}
+
+#bx-tooltip-card.bottom:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 110px;
+    z-index: 999999;
+    border: solid 15px transparent;
+    border-bottom-color: [[ Background Colour ]];
+}
+
+#bx-tooltip-card .bx-tooltip-card__body {
+    padding: 10px 15px;
+}
+
+#bx-tooltip-card .bx-tooltip-card__body h1 {
+    padding: 0 0 5px 0;
+    margin: 0;
+    font-size: [[Title size | number | 16 | {required: true}]]px;
+    line-height: 24px;
+    text-align: left;
+    font-family:[[Font]];
+    color: [[ Text Colour ]];
+}
+
+#bx-tooltip-card .bx-tooltip-card__body p {
+    padding: 0 0 5px 0;
+    margin: 0;
+    font-size: [[Text size | number | 12 | {required: true}]]px;
+    line-height: 20px;
+    text-align: left;
+    font-family:[[Font]];
+    color: [[ Text Colour ]];
+}
+
+/* close button */
+.bx-modal__btn-close-icon {
+    background: [[ Highlight Colour]];
+    border-radius: 12px;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    margin-top: 10px;
+    margin-right: 15px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bx-modal__btn-close-icon:after {
+    content: '';
+    height: 15px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+.bx-modal__btn-close-icon:before {
+    content: '';
+    height: 15px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    transform: rotate(-45deg);
+}

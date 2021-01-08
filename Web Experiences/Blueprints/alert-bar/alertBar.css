@@ -1,0 +1,136 @@
+/* Hide original top banner (in case it"s present) */
+.operational-updates {
+    display: none !important;
+}
+
+/* Add this clase when "click" close icon */
+.bx_TopBanner--hide {
+    display: none !important;
+}
+
+/* Push content down to allocate top banner */
+body.show-TopBanner {
+    margin-top: 71px !important;
+}
+
+/* Banner styling */
+#bx_TopBanner {
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
+    box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
+}
+
+#bx_TopBanner {
+    position: fixed;
+    z-index: 99998;
+    height: 71px;
+    width: 100vw;
+    [[Position | enum(Top, Bottom)||{order: 1, values(top, Bottom)}]]: 0;
+    background: [[Bar Colour | colour|#F3F5F7|{order: 2}]];
+    font-family: Arial,HelveticaNeue-Light,Helvetica,sans-serif;
+}
+
+#bx_TopBanner .bx_TopBanner__banner {
+    padding-left: 50px;
+    padding-right: 50px;
+    color: #000;
+    margin: 0 auto;
+    position: relative;
+    height: 71px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#bx_TopBanner .bx_TopBanner__p {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 24px;
+    width: 100%;
+    line-height: 10px;
+}
+
+#bx_TopBanner .bx_TopBanner__p--span {
+    color: [[Title Text Colour | colour|#4D4D4D|{order: 4}]];
+    font-family: [[Title Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri|{order: 5}]];
+    font-size: [[ Title Text Font Size | number | 18 | {order: 4;}]]px;
+    line-height: 16.1px;
+    font-weight: 500;
+    padding-right: 40px;
+}
+
+#bx_TopBanner .bx_TopBanner__p--button {
+    border-radius: 4px;
+    color: #fff;
+    background-color: [[Button Colour | colour |#2196f3| {order: 9}]];
+    border-color: [[Button Line Colour | colour |#2196f3| {order: 10}]];
+    font-family: [[Button Text Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri|{order: 10}]];
+    padding: 10px 23px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.bx__btn-close:hover,
+.bx__btn-close:focus,
+.bx__btn-close:active {
+    background-color: transparent;
+    box-shadow: none;
+    color: #333;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+/* close button */
+.bx__btn-close__icon {
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bx__btn-close__icon:after {
+    content: "";
+    height: 30px;
+    border-left: 2px solid #75808F;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 28px;
+}
+
+.bx__btn-close__icon:before {
+    content: "";
+    height: 30px;
+    border-left: 2px solid #75808F;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 28px;
+}
+
+@media only screen and (max-width: 600px) {
+  #bx_TopBanner .bx_TopBanner__banner {
+    height: 100%;
+    justify-content: space-around;
+    padding: 20px 0;
+    max-width: 80%;
+  }
+
+  #bx_TopBanner .bx_TopBanner__p {
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+  }
+  
+  #bx_TopBanner {
+    height: 140px;
+  }
+  
+  body.show-TopBanner {
+    margin-top: 140px !important;
+  }
+}

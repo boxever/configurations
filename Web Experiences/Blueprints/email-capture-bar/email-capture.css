@@ -1,0 +1,265 @@
+/*
+
+[[Background Colour | colour |#F3F5F7| {order: 3}]]
+[[CTA Colour | colour |#2196f3| {order: 4}]]
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri|{order: 5}]];
+[[Text Colour | colour | #4D4D4D | {order: 6}]]
+
+*/
+
+body.show-TopBanner {
+    margin-top: 71px !important;
+}
+
+
+/* Banner styling */
+
+#bx_TopBanner {
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(9, 9, 9, 0.4);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(9, 9, 9, 0.4);
+    box-shadow: 0px 0px 4px 0px rgba(9, 9, 9, 0.4);
+}
+
+#bx_TopBanner {
+    position: fixed;
+    z-index: 99998;
+    height: 71px;
+    width: 100vw;
+    [[Position | enum(Top, Bottom)|| {order: 2, values(top, Bottom)}]]: 0;
+    background: [[Background Colour]];
+    font-family: [[Font]];
+}
+
+#bx_TopBanner .bx_TopBanner__banner {
+    padding-left: 50px;
+    padding-right: 50px;
+    color: #000;
+    margin: 0 auto;
+    position: relative;
+    height: 71px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#bx_TopBanner .bx_TopBanner__banner p {
+    margin: 8px 0;
+    width: 100%;
+    font-family: [[Font]];
+    text-align: center;
+}
+
+#bx_TopBanner .bx-email_section {
+    display: flex;
+    width: 75%;
+    justify-content: center;
+    height: 39px;
+}
+#bx_TopBanner .bx-email_input::placeholder {
+    color: #F3F4F4;
+    font-family: [[Font]];
+}
+#bx_TopBanner .bx-email_input {
+    font-size: 18px;
+    border-radius: 2px;
+    border-width: 1px;
+    background-color: #FFF;
+    border: none;
+    color: [[Text Colour]];
+    border-color: #F3F5F7;
+    margin: 0 10px;
+    width: 50%;
+    max-width: 350px;
+    padding-left: 10px;
+}
+
+#bx_TopBanner .bx-modal_button-wrapper {
+    display: flex;
+    margin-top: auto;
+    margin: 0 10px;
+}
+
+#bx_TopBanner .bx-modal_button {
+    display: inline-block;
+    border-radius: 4px;
+    color: #fff;
+    background-color: [[CTA Colour]];
+    font-family: [[Font]];
+    padding: 8px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#bx_TopBanner .bx-text_section {
+    width: 25%;
+    min-width: 200px;
+    font-size: 20px;
+    color: [[Text Colour]];
+    text-align: center;
+    font-family: [[Font]];
+}
+
+#bx_TopBanner .bx-close_section {
+    width: 20%;
+}
+
+#bx_TopBanner #bx-privacy_button {
+    background-color: #999;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 10px;
+    margin: auto 10px;
+}
+
+#bx_TopBanner .bx-banner_content_container {
+    width: 95%;
+    display: flex;
+    align-items: center;
+}
+
+#bx_TopBanner p {
+    margin: 0;
+}
+
+#bx_TopBanner .bx__btn-close {
+    border: none;
+}
+
+#bx_TopBanner .bx-modal_button {
+    border: none;
+}
+
+#bx_TopBanner .bx__btn-close:hover,
+#bx_TopBanner .bx__btn-close:focus,
+#bx_TopBanner .bx__btn-close:active {
+    background-color: transparent;
+    box-shadow: none;
+    color: #333;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+
+/* close button */
+
+#bx_TopBanner .bx__btn-close__icon {
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    float: right;
+}
+
+#bx_TopBanner .bx__btn-close__icon:after {
+    content: "";
+    height: 30px;
+    border-left: 2px solid #75808F;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 28px;
+}
+
+#bx_TopBanner .bx__btn-close__icon:before {
+    content: "";
+    height: 30px;
+    border-left: 2px solid #75808F;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 28px;
+}
+
+/* Thank You Modal */
+#bx-thank_you_modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: [[Font]];
+}
+
+#bx-thank_you_modal .bx-modal_content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px 6px rgba(0, 0, 0, 0.3);
+    width: 250px;
+    min-height: 200px;
+    border: none;
+    padding: 40px 38px;
+    align-items: center;
+    justify-content: center;
+    background-color: [[Background Colour]];
+}
+
+#bx-thank_you_modal .bx-modal_content h3 {
+    line-height: 1.5;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: [[Text Colour]];
+    font-family: [[Font]];
+}
+
+#bx-thank_you_modal .bx-modal_content p {
+    padding: 12px 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 28px;
+    color: #000;
+    font-family: [[Font]];
+}
+
+@media only screen and (max-width: 700px) {
+  #bx_TopBanner .bx_TopBanner__banner {
+    height: 100%;
+    justify-content: space-around;
+    padding: 20px 0;
+    max-width: 90%;
+  }
+
+  #bx_TopBanner .bx_TopBanner__p {
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+  }
+  
+  #bx_TopBanner {
+    height: 140px;
+  }
+  
+  body.show-TopBanner {
+    margin-top: 140px !important;
+  }
+  
+  #bx_TopBanner .bx-banner_content_container {
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-around;
+  }
+  
+  #bx_TopBanner .bx-email_section {
+      width: 100%;
+  }
+  
+  #bx_TopBanner .bx-text_section {
+      width: 100%;
+  }
+  
+  #bx_TopBanner .bx-modal_button {
+    padding: 8px 15px;
+  }
+}

@@ -1,0 +1,15 @@
+<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->
+<!-- Type "d" to see decisioning helpers -->
+<div id="bx-transition-card">
+    <div class="img-container">
+        <div class="img-container__image"></div>
+    </div>
+    <div class="bx-transition-card__body">
+        <h3>[[Title | string | Title | {required:true, order:1}]]</h3>
+        <p>[[Description | text | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt | {required:true, order:2}]]</p>
+        <div class="options-container">
+            <a id="bx-transition-card--secondary" class="options-container__secondary">[[Dismiss Text | string | No Thanks | {required:true, order:3}]]</a>
+            <a id="bx-transition-card--primary" class="options-container__primary">[[CTA Text | string | Yes Please | {required:true, order:4}]]</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->
+<!-- Type "d" to see decisioning helpers -->
+<div id="bx_TopBanner">
+    <div class="bx_TopBanner__banner">
+        <div class="bx-banner_content_container">
+            <div class="bx-text_section">
+                <p>[[Title Text | text |For this bar, we recommend less than 50 characters| { max: 50 }]]</p>
+            </div>
+            <div class="bx-email_section">
+                <input type="email" name="bx-email_input" class="bx-email_input input-box" id="bx-email_input" placeholder="[[ Email Ghost Text | string | Email | { required: true } ]]">
+                <div class="bx-modal_button-wrapper">
+                    <a class="bx-modal_button" id="bx-modal_button">[[ Button Text | string | Submit | { required: true } ]]</a>
+                    <a class="bx-modal_button" id="bx-privacy_button" href="[[ Privacy Link | string | https://www.example.com/ | { required: true } ]]">privacy</a>
+                </div>
+            </div>
+        </div>
+        
+        <a class="bx__btn-close" aria-label="Close">
+            <span class="bx__btn-close__icon" id="bx_TopBanner-close"></span>
+        </a>
+    </div>
+</div>
+
+<div id="bx-thank_you_modal">
+    <div class="bx-modal_content">
+        <h3>[[ Thank You Title Text | string | Thank You! | { required: true } ]]</h3>
+        <p>[[ Thank You Description Text | text | You're all signed up. | { required: true } ]]</p>
+
+        <div class="bx-modal__btn-close-icon"></div>
+    </div>
+</div>
