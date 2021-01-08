@@ -2,7 +2,7 @@
 Library for all Boxever configurations that can be used in Web Experiences, Full Stack and Decision Models. 
 
 ### Web Experiences
-Boxever Blueprints allow you to quickly and with no code editing get an experience live on your website. Browse our library [here](Web%20Experiences/Blueprints) or choose from the below
+Boxever Blueprints allow you to quickly and with no code editing get a web experience live on your website. Browse our library [here](Web%20Experiences/Blueprints) or choose from the below
 
 - [Alert Bar](Web%20Experiences/Blueprints/alert-bar) - An alert bar that can be triggered top or bottom of your website.
 - [Corner Popup](Web%20Experiences/Blueprints/corner-popup) - This is a card with image and call to action that will pop up in the bottom right corner of your website.
@@ -13,7 +13,12 @@ Boxever Blueprints allow you to quickly and with no code editing get an experien
 - [Side Bar](Web%20Experiences/Blueprints/side-bar) - A side bar which enters from the right including image, text and call to action.
 - [Tooltip Widget](Web%20Experiences/Blueprints/tooltip) - A tooltip which can be used to explain or draw attention to an element or feature.
 
-### Decisioning Javascript
+
+
+### Decision Models
+[Blueprints](Decision%20Model/Blueprints)
+
+[Decision Functions](Decision%20Model/Decision%20Functions) 
 
 ### Audience Filter
 Use configuration to target [real time audiences](https://documentation.boxever.com/docs/int_exp#section-target-an-audience). Library of Audiences can be found [here](Audience%20Filters)
