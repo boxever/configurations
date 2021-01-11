@@ -1,4 +1,4 @@
-x# Inactive Tab
+# Inactive Tab
 Entices the user to return to webpage with a promotion or message by flashing the browser tab. 
 
 ![Inactive Tab](inactive%20tab%20flashing.gif)
