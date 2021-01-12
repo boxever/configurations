@@ -11,6 +11,7 @@
     overflow: hidden;
     background-color: rgba(0,0,0,0.4);
     font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif;
+    transition: all 5s ease-in-out;
 }
 
 #bx-modal_overlay .bx-modal_content {
@@ -21,17 +22,18 @@
     margin: 0 auto;
     border-radius: 4px;
     box-shadow: 0 2px 10px 6px rgba(0,0,0,0.3);
-    width: 650px;
-    min-height: 330px;
+    width: 450px;
+    min-height: 230px;
     border: none;
     padding: 20px 38px;
+    transition: all 5s ease-in-out;
 }
 
 #bx-modal_overlay .bx-modal_content h3 {
     line-height: 1.5;
     font-size: 36px;
     font-weight: bold;
-    margin: 0;
+    margin: auto;
     color: #000;
     font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif;
 }
@@ -40,6 +42,7 @@
     padding: 12px 0;
     margin: 0;
     font-size: 16px;
+    margin: auto;
     line-height: 28px;
     color: #000;
     font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif;
@@ -48,6 +51,7 @@
 #bx-modal_overlay .bx-modal_button-wrapper {
     display: flex;
     margin-top: auto;
+    margin: auto;
 }
 
 #bx-modal_overlay .bx-modal_button {
@@ -68,6 +72,7 @@
     margin-top: 20px;
     margin-right: 25px;
     position: absolute;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,6 +84,7 @@
     height: 30px;
     border-left: 2px solid #75808F;
     position: absolute;
+    margin: auto;
     transform: rotate(45deg);
 }
 
@@ -86,6 +92,7 @@
     content: "";
     height: 30px;
     border-left: 2px solid #000;
+    margin: auto;
     position: absolute;
     transform: rotate(-45deg);
 }
