@@ -1,7 +1,7 @@
 # Pop Up Takeover
 A Pop Up message which takes over the screen until clicked.
 
-![Pop Up](https://github.com/colmProneBoxever/blueprints/blob/main/popupTakeover/popuptakeover.png)
+![Pop Up](popup.png)
 
 ## Quickstart
 Copy the HTML/JS/CSS as needed from here to a new [Web Experience](https://documentation.boxever.com/docs/using-custom-code) in Boxever. Once created the following will be configurable components within the experience:
