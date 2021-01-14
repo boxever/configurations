@@ -1,4 +1,4 @@
-// Triggers the experience when user moves their mouse over the specified HTML element
+// Triggers the experience when user clicks the specified HTML element
 (function () {
     const targetElementPath = "body"; // Edit here to change to target element
     let targetElement;
