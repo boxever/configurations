@@ -19,7 +19,7 @@ Boxever Blueprints allow you to quickly and with no code editing get a [Web Expe
 
 [Blueprints](Decision%20Model/Blueprints) - Out of the box decision model blueprints to quickly upload and run decision models.
 
-[Programmable Functions](Decision%20Model/Decision%20Functions) - Library of programmables that can be used 
+[Programmable Functions](Decision%20Model/Programmable%20Functions) - Library of programmables that can be used 
 
 ### Audience Filters
 Use configuration to target [real time audiences](https://documentation.boxever.com/docs/int_exp#section-target-an-audience). Library of Audiences can be found [here](Audience%20Filters)
