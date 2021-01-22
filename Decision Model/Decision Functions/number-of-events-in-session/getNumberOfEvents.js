@@ -1,3 +1,5 @@
+// This function will return the number of events of the specified type in the provided session.
+
 (function () {
     function getNumberOfEvents(session, eventType){
         var numberOfEvents = 0;
@@ -10,5 +12,5 @@
         return numberOfEvents;
     }
 
-    return getNumberOfEvents(triggerSession, "VIEW");
+    var numberOfEvents =  getNumberOfEvents(triggerSession, "VIEW"); // triggerSession can be obtained using the getTriggerSession function
 })();
