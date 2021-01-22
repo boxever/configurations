@@ -11,7 +11,6 @@
     overflow: hidden;
     background-color: rgba(0,0,0,0.4);
     font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif;
-    transition: all 5s ease-in-out;
 }
 
 #bx-modal_overlay .bx-modal_content {
@@ -26,7 +25,6 @@
     min-height: 230px;
     border: none;
     padding: 20px 38px;
-    transition: all 5s ease-in-out;
 }
 
 #bx-modal_overlay .bx-modal_content h3 {
@@ -61,16 +59,30 @@
     background-color: [[ button color | colour | { required: true } ]];
     padding: 10px 23px;
 }
+#bx-modal_overlay .bx-modal_dismiss-wrapper {
+    display: flex;
+    margin-top: auto;
+    margin: auto;
+    margin-left :25px;
+}
+
+#bx-modal_overlay .bx-modal_dismiss {
+    display: inline-block;
+    border-radius: 4px;
+    margin-left :25px;
+    color: #fff;
+    padding: 10px 23px;
+}
 
 /* close button */
 .bx-modal__btn-close-icon {
     background: transparent;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     width: 30px;
     height: 30px;
-    margin-top: 20px;
-    margin-right: 25px;
+    margin-top: 10px;
+    margin-right: 10px;
     position: absolute;
     margin: auto;
     display: flex;
@@ -80,6 +92,7 @@
 }
 
 .bx-modal__btn-close-icon:after {
+    background: transparent;
     content: "";
     height: 30px;
     border-left: 2px solid #75808F;
@@ -89,6 +102,7 @@
 }
 
 .bx-modal__btn-close-icon:before {
+    background: transparent;
     content: "";
     height: 30px;
     border-left: 2px solid #000;
