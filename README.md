@@ -5,8 +5,9 @@ Library for all Boxever configurations that can be used in Web Experiences, Full
 Boxever Blueprints allow you to quickly and with no code editing get a [Web Experience](https://documentation.boxever.com/docs/webexperiences) live on your website. Browse our library [here](Web%20Experiences/Blueprints) or choose from the below
 
 - [Alert Bar](Web%20Experiences/Blueprints/alert-bar) - An alert bar that can be triggered top or bottom of your website.
-- [Corner Popup](Web%20Experiences/Blueprints/corner-popup) - A card with image and call to action that will pop up in the bottom right corner of your website.
+- [Corner Pop-up](Web%20Experiences/Blueprints/corner-popup) - A card with image and call to action that will pop up in the bottom right corner of your website.
 - [Email Capture Bar](Web%20Experiences/Blueprints/email-capture-bar) - A bar that appears at the top or bottom of your site to allow for email capture.
+- [Email Capture Corner Pop-up](Web%20Experiences/Blueprints/email-capture-corner) - A corner pop-up that appears at the left or right bottom corner of your site to allow for email capture.
 - [Inactive Tab](Web%20Experiences/Blueprints/inactive-tab) - Entices the user to return to your website with a message by flashing the browser tab.
 - [Notification Widget](Web%20Experiences/Blueprints/notification-widget#notification-widget) - A notification style widget which slides into a corner of the page.
 - [Pop Up Takeover](Web%20Experiences/Blueprints/popup-takeover) - A Pop Up message which takes over the screen until clicked.
