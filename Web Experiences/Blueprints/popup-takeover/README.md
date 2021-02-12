@@ -7,4 +7,4 @@ A Pop Up message which takes over the screen until clicked.
 Copy the HTML/JS/CSS as needed from here to a new [Web Experience](https://documentation.boxever.com/docs/using-custom-code) in Boxever. Once created the following will be configurable components within the experience:
 - Popup Title
 - Description Text
--Button Title
+- Button Title
