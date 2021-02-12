@@ -8,5 +8,3 @@ Copy the HTML/JS/CSS as needed from here to a new [Web Experience](https://docum
 - Popup Title
 - Description Text
 -Button Title
-
-You can add popup-takeover-audienceFilter.js to advanced page targeting so it will only appear after a specified scroll percentage of the page.
