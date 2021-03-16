@@ -22,3 +22,8 @@ bxCardClicked.onclick = function() {
     sendDataToBoxever("INTERACTION_CLICKED");
     document.querySelector("#bx-modal_overlay").style.display = "none";
 }
+var overlayClicked = document.querySelector("#bx-modal_overlay");
+overlayClicked.onclick = function() {
+    sendDataToBoxever("INTERACTION_DISMISSED");
+    document.querySelector("#bx-modal_overlay").style.display = "none";
+}

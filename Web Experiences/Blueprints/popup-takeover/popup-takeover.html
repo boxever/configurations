@@ -2,12 +2,15 @@
 <!-- Type "d" to see decisioning helpers -->
 <div id="bx-modal_overlay">
     <div class="bx-modal_content">
-
-        <h3>[[ popup title | string | Sale now on | { required: true } ]]</h3>
-        <p>[[ description | text || {required: true }]]</p>
+        <h3>[[ Title pop-up | string | Sale now on | { required: true, group: 1 Text Configuration } ]]</h3>
+        <p>[[ Description | text | Would you like to enjoy our services for a better price? | {required: true , group: 1 Text Configuration }]]</p>
+        <p class="second-description">[[ Second Description | text | Weekly offers available! | { group:  1 Text Configuration }]]</p>
         <div class="bx-modal_button-wrapper">
-            <a target="_blank"  href="https://www.boxever.com" class="bx-modal_button">[[ button title | string | Yes Please | {required:true} ]]</a>
+            <a target="_blank"  href="https://www.boxever.com" class="bx-modal_button">[[ Button Text | string | Yes Please | {required:true, group: 2 Button Configuration} ]]</a>
         </div>
         <div class="bx-modal__btn-close-icon"></div>
     </div>
 </div>
+
+
+
