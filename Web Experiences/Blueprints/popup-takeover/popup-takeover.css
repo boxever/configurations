@@ -1,4 +1,11 @@
 /* accomodate every size screen by default */
+/* tested on crome, crome mobile, safari, firefox, edge */
+
+/*
+Declare variables
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group:0 General}]];
+[[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
+*/
 
 /* dark background */
 #bx-modal_overlay {
@@ -13,7 +20,7 @@
     height: 100%;
     overflow: hidden;
     background-color: rgba(0,0,0,0.4);
-    font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif;
+    font-family: [[ Font ]]
 }
 
 /* modal General */
@@ -69,9 +76,9 @@
 #bx-modal_overlay .bx-modal_button {
     display: inline-block;
     border-radius: 4px;
+    padding: 10px 23px;
     color: [[ Button Text Color | colour | #fff | { required: true, group: 2 Button Configuration } ]];
     background-color: [[ Button Color | colour | #4caf50|{ required: true, group: 2 Button Configuration } ]];
-    padding: 10px 23px;
     font-size: [[Button Text Sixe in px | number | 16 | { group: 2 Button Configuration } ]]px;
 }
 
@@ -112,7 +119,7 @@
     background: transparent;
     content: "";
     height: 20px;
-    border-left: 2px solid [[ X first Color | colour | #f88 |{ required: true, group: 3 Closing Button Configuration } ]];
+    border-left: 2px solid [[ X Color ]];
     position: absolute;
     margin: auto;
     transform: rotate(45deg);
@@ -122,7 +129,7 @@
     background: transparent;
     content: "";
     height: 20px;
-    border-left: 2px solid [[ X second Color | colour | #f88 |{ required: true, group: 3 Closing Button Configuration } ]];;
+    border-left: 2px solid [[ X Color ]];
     margin: auto;
     position: absolute;
     transform: rotate(-45deg);

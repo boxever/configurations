@@ -6,7 +6,7 @@ setTimeout(function() {
     sendInteractionToBoxever("VIEWED");
 });
 
-var bxSidebarClose = bxContent.querySelector(".close__btn-close-icon");
+var bxSidebarClose = bxContent.querySelector(".bx__btn-close__icon");
 bxSidebarClose.onclick = function() {
     bxContent.classList.remove("open");
     sendInteractionToBoxever("DISMISSED");
@@ -15,7 +15,7 @@ bxSidebarClose.onclick = function() {
 var bxSidebarCta = bxContent.querySelector("#bx-sidebar__primary-action");
 bxSidebarCta.onclick = function() {
     sendInteractionToBoxever("CLICKED");
-    window.location.href = "[[CTA destination URL | string || {required:true}]]";
+    window.location.href = "[[Button destination URL | string | # | {required:true, group: 2 Button Configuration }]]";
 }
 
 function sendInteractionToBoxever(interactionType) {
