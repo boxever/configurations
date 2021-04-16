@@ -1,16 +1,13 @@
-/* accomodate every size screen by default */
-/* tested on crome, crome mobile, safari, firefox, edge */
-
 /*
 [[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Optima| {group:0 General}]];
 [[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
 */
 
-#bx-sidebar {
+#bx-{{ref}} #bx-sidebar {
     position: fixed;
     top: 0;
     right: -1000px;
-    height: 100vh;
+    height: 100%;
     width: 300px;
     background-color: [[ BackgroundColor | colour | #eeeeee| { required: true, group: 0 General } ]];
     z-index: 99999;
@@ -18,20 +15,18 @@
     box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0,0,0,.1);
     font-family: [[Font]];
     max-width: 70%;
-    height: 100vh;
-    overflow: scroll;
 }
 
-#bx-sidebar.open {
+ #bx-{{ref}} #bx-sidebar.open {
     right: 0;
 }
 
-#bx-sidebar .bx-sidebar__img-container {
+  #bx-{{ref}} #bx-sidebar .bx-sidebar__img-container {
     width: 100%;
-    height: 40vh;
+    height: 300px;
 }
 
-#bx-sidebar .bx-sidebar__img-container .img-container__image {
+  #bx-{{ref}} #bx-sidebar .bx-sidebar__img-container .img-container__image {
     margin: 0;
     background: #dcdcdc;
     height: 100%;
@@ -45,13 +40,11 @@
     background-size: cover;
 }
 
-#bx-sidebar .bx-sidebar__body {
+  #bx-{{ref}} #bx-sidebar .bx-sidebar__body {
     padding: 30px 24px;
-    max-height: 50vh;
 }
 
-#bx-sidebar .bx-sidebar__body h3 {
-    margin: auto;
+  #bx-{{ref}} #bx-sidebar .bx-sidebar__body h3 {
     margin-top: 28px;
     line-height: 1.5;
     margin: 0;
@@ -62,7 +55,7 @@
 
 }
 
-#bx-sidebar .bx-sidebar__body p {
+ #bx-{{ref}} #bx-sidebar .bx-sidebar__body p {
     padding: 12px 0;
     margin: 0;
     font-size: [[Description size in px | number | 22 | { group: 1 Text Configuration } ]]px;
@@ -72,7 +65,7 @@
 
 }
 
-#bx-sidebar .body__button {
+ #bx-{{ref}} #bx-sidebar .body__button {
     display: inline-block;
     border-radius: 4px;
     color: #fff;
@@ -80,35 +73,32 @@
     cursor: pointer;
     color: [[ Button Text Color | colour | #fff | { required: true, group: 2 Button Configuration } ]];
     background-color: [[ Button Color | colour | #4caf50|{ required: true, group: 2 Button Configuration } ]];
-    font-size: [[Button Text Size in px | number | 16 | { group: 2 Button Configuration } ]]px;
+    font-size: [[Button Text Sixe in px | number | 16 | { group: 2 Button Configuration } ]]px;
     width: 100%;
     text-align: center;
     text-decoration: none;
 }
-#bx-sidebar .body__button:hover {
+ #bx-{{ref}} #bx-sidebar .body__button:hover {
     transform: scale(1.05);
 }
 
 
 /* close button */
-.bx__btn-close__icon {
+ #bx-{{ref}} .bx__btn-close__icon {
     background: [[ X Background Color | colour | #fff|{ required: true, group: 3 Closing Button Configuration } ]];
     top: 20px;  
     left: 15px;
     width: 30px;
     height: 30px;
     border-radius:15px;
-    margin-top: 10px;
-    margin-right: 10px;
     position: absolute;
-    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 
-.bx__btn-close__icon:after {
+ #bx-{{ref}} .bx__btn-close__icon:after {
     background: transparent;
     content: "";
     height: 20px;
@@ -116,9 +106,10 @@
     position: absolute;
     margin: auto;
     transform: rotate(45deg);
+    left:14px;
 }
 
-.bx__btn-close__icon:before {
+ #bx-{{ref}} .bx__btn-close__icon:before {
     background: transparent;
     content: "";
     height: 20px;
@@ -126,28 +117,19 @@
     margin: auto;
     position: absolute;
     transform: rotate(-45deg);
+    left:14px;
 }
 
 @media only screen and (max-width: 400px) {
-    #bx-sidebar .bx-sidebar__body h3 {
+     #bx-{{ref}} #bx-sidebar .bx-sidebar__body h3 {
         line-height: 1.1;
     }
-    #bx-sidebar .bx-sidebar__img-container{
+     #bx-{{ref}} #bx-sidebar .bx-sidebar__img-container{
         height: 200px;
     }
-    #bx-sidebar .bx-sidebar__body p {
+     #bx-{{ref}} #bx-sidebar .bx-sidebar__body p {
         padding: 10px 0;
         margin: 0;
         font-size: [[Description size in px (on mobile) | number | 14 | { group: 1 Text Configuration } ]]px;
     }
-}
-
-@media only screen and (max-height: 400px) {
-    #bx-sidebar {
-        height: 100vh;
-    }
-    #bx-sidebar .bx-sidebar__img-container {
-        height: 150px;
-    }
-
 }
