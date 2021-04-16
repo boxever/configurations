@@ -1,3 +1,5 @@
+/* accomodate every size screen by default */
+/* tested on crome, crome mobile, safari, firefox, edge */
 /*
 [[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Optima| {group:0 General}]];
 [[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
