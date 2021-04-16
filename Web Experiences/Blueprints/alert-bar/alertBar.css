@@ -1,12 +1,3 @@
-/* accomodate every size screen by default */
-/* tested on crome, crome mobile, safari, firefox, edge */
-
-/*
-Declare variables
-[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group:0 General}]];
-[[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
-*/
-
 /* Hide original top banner (in case it"s present) */
 .operational-updates {
     display: none !important;
@@ -27,7 +18,6 @@ body.show-TopBanner {
     -webkit-box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
     -moz-box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
     box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
-    min-width: 330px;
 }
 
 #bx_TopBanner {
@@ -35,9 +25,9 @@ body.show-TopBanner {
     z-index: 99998;
     height: 71px;
     width: 100vw;
-    [[Position | enum(Top, Bottom)| Top | { required: true, group: 0 General } ]]: 0;
-    background: [[ Bar Background Color | colour | #eeeeee| { required: true, group: 0 General } ]];
-    font-family: [[ Font ]]
+    [[Position | enum(Top, Bottom)||{order: 1, values(top, Bottom)}]]: 0;
+    background: [[Bar Colour | colour|#F3F5F7|{order: 2}]];
+    font-family: Arial,HelveticaNeue-Light,Helvetica,sans-serif;
 }
 
 #bx_TopBanner .bx_TopBanner__banner {
@@ -63,8 +53,9 @@ body.show-TopBanner {
 }
 
 #bx_TopBanner .bx_TopBanner__p--span {
-    color: [[Title Text Colour | colour |#444| { group: 1 Text Configuration }]];
-    font-size: [[ Title Text Font Size | number | 18 | { group: 1 Text Configuration }]]px;
+    color: [[Title Text Colour | colour|#4D4D4D|{order: 4}]];
+    font-family: [[Title Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri|{order: 5}]];
+    font-size: [[ Title Text Font Size | number | 18 | {order: 4;}]]px;
     line-height: 16.1px;
     font-weight: 500;
     padding-right: 40px;
@@ -73,22 +64,12 @@ body.show-TopBanner {
 #bx_TopBanner .bx_TopBanner__p--button {
     border-radius: 4px;
     color: #fff;
+    background-color: [[Button Colour | colour |#2196f3| {order: 9}]];
+    border-color: [[Button Line Colour | colour |#2196f3| {order: 10}]];
+    font-family: [[Button Text Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri|{order: 10}]];
     padding: 10px 23px;
-    display: inline-block;
-    min-width: 110px;
-    text-align: center;
+    margin-right: 30px;
     cursor: pointer;
-    border: none;
-    margin-right: 10px;
-    color: [[ Button Text Color | colour | #fff | { required: true, group: 2 Button Configuration } ]];
-    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: 2 Button Configuration } ]];
-    font-size: [[Button Text Sixe in px | number | 16 | { group: 2 Button Configuration } ]]px;
-}
-
-#bx_TopBanner .bx_TopBanner__p--button:hover {
-    box-shadow: 3px 4.9px 16px rgba(40,40,40,0.6);
-    letter-spacing:2px;
-    transform: scale(1.03);
 }
 
 .bx__btn-close:hover,
@@ -103,16 +84,10 @@ body.show-TopBanner {
 
 /* close button */
 .bx__btn-close__icon {
-    background: [[ X Background Color | colour | #fff|{ required: true, group: 3 Closing Button Configuration } ]];
-    top: 30%;  /* special size for alert bar */
-    right: 20px;
-    width: 30px;
-    height: 30px;
-    border-radius:15px;
-    margin-top: 10px;
-    margin-right: 10px;
-    position: absolute;
-    margin: auto;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,23 +95,21 @@ body.show-TopBanner {
 }
 
 .bx__btn-close__icon:after {
-    background: transparent;
     content: "";
-    height: 20px;
-    border-left: 2px solid [[ X Color ]];
+    height: 30px;
+    border-left: 2px solid #75808F;
     position: absolute;
-    margin: auto;
     transform: rotate(45deg);
+    left: 28px;
 }
 
 .bx__btn-close__icon:before {
-    background: transparent;
     content: "";
-    height: 20px;
-    border-left: 2px solid [[ X Color ]];
-    margin: auto;
+    height: 30px;
+    border-left: 2px solid #75808F;
     position: absolute;
     transform: rotate(-45deg);
+    left: 28px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -144,36 +117,20 @@ body.show-TopBanner {
     height: 100%;
     justify-content: space-around;
     padding: 20px 0;
-    max-width: 99%;
-  }
-
-  #bx_TopBanner .bx_TopBanner__p--span {
-    padding-left: 10px;
-    line-height: 1.15;
-    margin-bottom: 6px;
+    max-width: 80%;
   }
 
   #bx_TopBanner .bx_TopBanner__p {
     flex-direction: column;
-    align-items: center;
     height: 100%;
-    text-align: left;
+    text-align: center;
   }
   
   #bx_TopBanner {
-    height: 110px;
+    height: 140px;
   }
   
   body.show-TopBanner {
-    margin-top: 110px !important;
+    margin-top: 140px !important;
   }
-
-  .bx__btn-close__icon {
-      top: 10px;
-  }
-
 }
-
-
-
-

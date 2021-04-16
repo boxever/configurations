@@ -2,21 +2,21 @@
 <!-- Type "d" to see decisioning helpers -->
 <div id="bx-transition-card">
     <div class="bx-transition-card__body">
-        <div class="bx__btn-close__icon"></div>
         <div class="bx-email_capture_container" id="bx-email_capture_container">
-            <h3>[[ Title Text | string | Sign Up For Updates! | { required: true, group: 1 Text Configuration } ]]</h3>
-            <p>[[ Body Text | string |By providing your email address, we can keep you up to date and send you any carts you might want to return to.| { required: true ,group: 1 Text Configuration }]]</p>
+            <h3>[[ Title Text | string | Sign Up For Updates! | { required: true, order: 3 } ]]</h3>
+            <p>[[ Body Text | string |By providing your email address, we can keep you up to date and send you any carts you might want to return to.| { required: true, order: 7} ]]</p>
             
             <div class="options-container">
-                    <input type="email" name="bx-email_input" class="bx-email_input input-box" id="bx-email_input" placeholder="[[ Form Ghost Text | string | Email | { required: true , group: 2 Button Configuration } ]]">
-                <a id="bx-transition-card--primary" class="options-container__primary">[[ Button Text | string | Submit | {required: true,max: 15, group: 2 Button Configuration  } ]]</a>
+                    <input type="email" name="bx-email_input" class="bx-email_input input-box" id="bx-email_input" placeholder="[[ Form Ghost Text | string | Email | {order:21, required: true } ]]">
+                <a id="bx-transition-card--primary" class="options-container__primary">[[ Button Text | string | Submit | { order: 10,required: true,max: 15 } ]]</a>
             </div>
-            <p>[[ Privacy Text | string |By completing this form you are signing up to receive our emails and can unsubscribe at any time.|{ required: true, group: 1 Text Configuration }]]</p>
-            <p><a href="[[ Privacy Link | string | https://www.example.com/ | { required: true, group: 1 Text Configuration } ]]">Privacy Policy</a></p>
+            <p>[[ Privacy Text | string |By completing this form you are signing up to receive our emails and can unsubscribe at any time.|]]</p>
+            <p><a href="[[ Privacy Link | string | https://www.example.com/ | { order: 16,required: true } ]]">Privacy Policy</a></p>
         </div>
         <div class="bx-thank_you_container" id="bx-thank_you_container">
-            <h3>[[ Thank You Title Text | string | Thank You! | { required: true, group: 1 Text Configuration } ]]</h3>
-            <p>[[ Thank You Description Text | text | You're all signed up. | { required: true, group: 1 Text Configuration } ]]</p>
+            <h3>[[ Thank You Title Text | string | Thank You! | { required: true } ]]</h3>
+            <p>[[ Thank You Description Text | text | You're all signed up. | { required: true } ]]</p>
         </div>
     </div>
-    
+    <div class="bx__btn-close-icon"></div>
+</div>

@@ -1,39 +1,25 @@
-//make experience unique
-var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);
-var styleTag = document.getElementById('style-' + variant.ref)
-if (styleTag) {
-    styleTag.innerHTML = compiledCSS;
-}
-/////
-
 insertHTMLAfter("body");
 
-// show experience on bx load
-let bxContent = document.querySelector("#bx-" + variant.ref + " #bx-sidebar");
+var bxContent = document.getElementById("bx-sidebar");
 setTimeout(function() {
     bxContent.classList.add("open");
     sendInteractionToBoxever("VIEWED");
 });
 
-// declarations
-let bxSidebarCta = bxContent.querySelector("#bx-sidebar__primary-action");
-let bxSidebarClose = bxContent.querySelector(".bx__btn-close__icon");
-
-// Listeners
-
-bxSidebarClose.onclick = ()=> {
+var bxSidebarClose = bxContent.querySelector(".close__btn-close-icon");
+bxSidebarClose.onclick = function() {
     bxContent.classList.remove("open");
     sendInteractionToBoxever("DISMISSED");
 }
 
-
-bxSidebarCta.onclick = ()=> {
+var bxSidebarCta = bxContent.querySelector("#bx-sidebar__primary-action");
+bxSidebarCta.onclick = function() {
     sendInteractionToBoxever("CLICKED");
-    window.location.href = "[[Button destination URL | string | # | {required:true, group: 2 Button Configuration }]]";
+    window.location.href = "[[CTA destination URL | string || {required:true}]]";
 }
 
-const sendInteractionToBoxever = (interactionType) =>{
-    let eventToSent = {
+function sendInteractionToBoxever(interactionType) {
+    var eventToSent = {
         "channel": "WEB",
         "type": "INTERACTION",
         "pos": window._boxever_settings.pointOfSale,
@@ -41,5 +27,5 @@ const sendInteractionToBoxever = (interactionType) =>{
         "interactionID":"BX_SIDEBAR",
         "interactionType": interactionType
     };
-    Boxever.eventCreate(eventToSent, (data)=> { }, 'json');
+    Boxever.eventCreate(eventToSent, function (data) { }, 'json');
 }
