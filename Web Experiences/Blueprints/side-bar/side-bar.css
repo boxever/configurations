@@ -1,33 +1,34 @@
+/* accomodate every size screen by default */
+/* tested on crome, crome mobile, safari, firefox, edge */
 /*
-[[Background Colour | colour |#F3F5F7]]
-[[CTA Colour | colour |#2196f3]]
-[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri]];
-[[Text Colour | colour | #4D4D4D]]
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Optima| {group:0 General}]];
+[[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
 */
 
-#bx-sidebar {
+#bx-{{ref}} #bx-sidebar {
     position: fixed;
     top: 0;
     right: -1000px;
     height: 100%;
     width: 300px;
-    background-color: [[Background Colour]];
+    background-color: [[ BackgroundColor | colour | #eeeeee| { required: true, group: 0 General } ]];
     z-index: 99999;
     transition: right 1.6s ease-in-out;
     box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0,0,0,.1);
     font-family: [[Font]];
+    max-width: 70%;
 }
 
-#bx-sidebar.open {
+ #bx-{{ref}} #bx-sidebar.open {
     right: 0;
 }
 
-#bx-sidebar .bx-sidebar__img-container {
+  #bx-{{ref}} #bx-sidebar .bx-sidebar__img-container {
     width: 100%;
     height: 300px;
 }
 
-#bx-sidebar .bx-sidebar__img-container .img-container__image {
+  #bx-{{ref}} #bx-sidebar .bx-sidebar__img-container .img-container__image {
     margin: 0;
     background: #dcdcdc;
     height: 100%;
@@ -35,61 +36,63 @@
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    background-image: url("[[Image URL | string || {required:true,order:3}]]");
+    background-image: url("[[Image URL | string |  | {group: 0 General} ]]");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#bx-sidebar .bx-sidebar__body {
+  #bx-{{ref}} #bx-sidebar .bx-sidebar__body {
     padding: 30px 24px;
 }
 
-#bx-sidebar .bx-sidebar__body h3 {
+  #bx-{{ref}} #bx-sidebar .bx-sidebar__body h3 {
     margin-top: 28px;
     line-height: 1.5;
-    font-size: 36px;
+    margin: 0;
+    font-size: [[Title size in px | number | 28 | { group: 1 Text Configuration } ]]px;
     font-weight: bold;
-    margin: 0;
-    color: [[Text Colour]];
+    color: [[ Title-color | colour | #444 | { required: true, group: 1 Text Configuration } ]];
+    font-family: [[Font]];
+
 }
 
-#bx-sidebar .bx-sidebar__body p {
-    padding: 12px 0 25px;
+ #bx-{{ref}} #bx-sidebar .bx-sidebar__body p {
+    padding: 12px 0;
     margin: 0;
-    font-size: 16px;
+    font-size: [[Description size in px | number | 22 | { group: 1 Text Configuration } ]]px;
+    margin: auto;
     line-height: 28px;
-    color: [[Text Colour]];
+    color: [[ Text-color | colour | #444 | { required: true, group: 1 Text Configuration} ]];
+
 }
 
-#bx-sidebar .body__button {
+ #bx-{{ref}} #bx-sidebar .body__button {
     display: inline-block;
     border-radius: 4px;
     color: #fff;
-    background-color: [[CTA Colour]];
     padding: 10px 30px;
     cursor: pointer;
+    color: [[ Button Text Color | colour | #fff | { required: true, group: 2 Button Configuration } ]];
+    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: 2 Button Configuration } ]];
+    font-size: [[Button Text Sixe in px | number | 16 | { group: 2 Button Configuration } ]]px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+ #bx-{{ref}} #bx-sidebar .body__button:hover {
+    transform: scale(1.05);
 }
 
-#bx-sidebar .bx-sidebar__close {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    transform: translateX(-100%);
-    background-color: #fff;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0,0,0,.1);
-}
 
 /* close button */
-.close__btn-close-icon {
-    background: transparent;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
+ #bx-{{ref}} .bx__btn-close__icon {
+    background: [[ X Background Color | colour | #fff|{ required: true, group: 3 Closing Button Configuration } ]];
+    top: 20px;  
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius:15px;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -97,18 +100,38 @@
     cursor: pointer;
 }
 
-.close__btn-close-icon:after {
+ #bx-{{ref}} .bx__btn-close__icon:after {
+    background: transparent;
     content: "";
-    height: 30px;
-    border-left: 2px solid #75808F;
+    height: 20px;
+    border-left: 2px solid [[ X Color ]];
     position: absolute;
+    margin: auto;
     transform: rotate(45deg);
+    left:14px;
 }
 
-.close__btn-close-icon:before {
+ #bx-{{ref}} .bx__btn-close__icon:before {
+    background: transparent;
     content: "";
-    height: 30px;
-    border-left: 2px solid #75808F;
+    height: 20px;
+    border-left: 2px solid [[ X Color ]];
+    margin: auto;
     position: absolute;
     transform: rotate(-45deg);
+    left:14px;
+}
+
+@media only screen and (max-width: 400px) {
+     #bx-{{ref}} #bx-sidebar .bx-sidebar__body h3 {
+        line-height: 1.1;
+    }
+     #bx-{{ref}} #bx-sidebar .bx-sidebar__img-container{
+        height: 200px;
+    }
+     #bx-{{ref}} #bx-sidebar .bx-sidebar__body p {
+        padding: 10px 0;
+        margin: 0;
+        font-size: [[Description size in px (on mobile) | number | 14 | { group: 1 Text Configuration } ]]px;
+    }
 }

@@ -3,11 +3,9 @@
         <div class="img-container__image"></div>
     </div>
     <div class="bx-sidebar__body">
-        <h3>[[Title | string | Title | {required:true, order:1}]]</h3>
-        <p>[[Text | text | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. | {required:true, order:2}]]</p>
-        <a id="bx-sidebar__primary-action" class="body__button">[[CTA Text | string | Click Here | {required:true, order:4}]]</a>
+        <h3>[[Title Text | string | Title | { group: 1 Text Configuration}]]</h3>
+        <p>[[Text | text | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. | { group: 1 Text Configuration}]]</p>
+        <a id="bx-sidebar__primary-action" class="body__button">[[ Button Text | string | Let's GO! | { group: 2 Button Configuration } ]]</a>
     </div>
-    <div class="bx-sidebar__close">
-        <div class="close__btn-close-icon"></div>
-    </div>
+    <div class="bx__btn-close__icon"></div>
 </div>

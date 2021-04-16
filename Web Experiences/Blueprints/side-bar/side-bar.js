@@ -1,25 +1,39 @@
+//make experience unique
+var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);
+var styleTag = document.getElementById('style-' + variant.ref)
+if (styleTag) {
+    styleTag.innerHTML = compiledCSS;
+}
+/////
+
 insertHTMLAfter("body");
 
-var bxContent = document.getElementById("bx-sidebar");
+// show experience on bx load
+let bxContent = document.querySelector("#bx-" + variant.ref + " #bx-sidebar");
 setTimeout(function() {
     bxContent.classList.add("open");
     sendInteractionToBoxever("VIEWED");
 });
 
-var bxSidebarClose = bxContent.querySelector(".close__btn-close-icon");
-bxSidebarClose.onclick = function() {
+// declarations
+let bxSidebarCta = bxContent.querySelector("#bx-sidebar__primary-action");
+let bxSidebarClose = bxContent.querySelector(".bx__btn-close__icon");
+
+// Listeners
+
+bxSidebarClose.onclick = ()=> {
     bxContent.classList.remove("open");
     sendInteractionToBoxever("DISMISSED");
 }
 
-var bxSidebarCta = bxContent.querySelector("#bx-sidebar__primary-action");
-bxSidebarCta.onclick = function() {
+
+bxSidebarCta.onclick = ()=> {
     sendInteractionToBoxever("CLICKED");
-    window.location.href = "[[CTA destination URL | string || {required:true}]]";
+    window.location.href = "[[Button destination URL | string | # | {required:true, group: 2 Button Configuration }]]";
 }
 
-function sendInteractionToBoxever(interactionType) {
-    var eventToSent = {
+const sendInteractionToBoxever = (interactionType) =>{
+    let eventToSent = {
         "channel": "WEB",
         "type": "INTERACTION",
         "pos": window._boxever_settings.pointOfSale,
@@ -27,5 +41,5 @@ function sendInteractionToBoxever(interactionType) {
         "interactionID":"BX_SIDEBAR",
         "interactionType": interactionType
     };
-    Boxever.eventCreate(eventToSent, function (data) { }, 'json');
+    Boxever.eventCreate(eventToSent, (data)=> { }, 'json');
 }
