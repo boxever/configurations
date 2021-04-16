@@ -1,3 +1,13 @@
+/* accomodate every size screen by default */
+/* tested on crome, crome mobile, safari, firefox, edge */
+
+/*
+Declare variables
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group:0 General}]];
+[[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
+*/
+
+/* dark background */
 #bx-modal_overlay {
     display: none;
     justify-content: center;
@@ -10,40 +20,50 @@
     height: 100%;
     overflow: hidden;
     background-color: rgba(0,0,0,0.4);
-    font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif;
+    font-family: [[ Font ]]
 }
 
+/* modal General */
 #bx-modal_overlay .bx-modal_content {
     display: flex;
     flex-direction: column;
     position:relative;
-    background: #fff;
+    background: [[ Background Color | colour | #eeeeee| { required: true, group: 0 General } ]];
     margin: 0 auto;
     border-radius: 4px;
     box-shadow: 0 2px 10px 6px rgba(0,0,0,0.3);
-    width: 450px;
+    width: [[ Pop-up Size | enum(30%, 40%, 50%,75%) | 40%| {group: 0 General}]];
     min-height: 230px;
     border: none;
     padding: 20px 38px;
+    border-radius : [[ Border Radius (in PX) | number | 5 | {group: 0 General}]]px;
+    min-width: 300px;
+    font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif; 
 }
 
+/* Title */
 #bx-modal_overlay .bx-modal_content h3 {
-    line-height: 1.5;
-    font-size: 36px;
+    font-size: [[Title size in px | number | 28 | { group: 1 Text Configuration } ]]px;
     font-weight: bold;
     margin: auto;
-    color: #000;
-    font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif;
+    color: [[ Title-color | colour | #444 | { required: true, group: 1 Text Configuration } ]];
 }
 
+/* text */
 #bx-modal_overlay .bx-modal_content p {
+    text-align: center;
     padding: 12px 0;
     margin: 0;
-    font-size: 16px;
+    font-size: [[Description size in px | number | 22 | { group: 1 Text Configuration } ]]px;
     margin: auto;
     line-height: 28px;
-    color: #000;
-    font-family: Arial,HelveticaNeue,Helvetica Neue,Helvetica,Lucida Grande,sans-serif;
+    color: [[ Text-color | colour | #444 | { required: true, group: 1 Text Configuration} ]];
+}
+
+/* second text (can be hidden)  */
+#bx-modal_overlay .bx-modal_content p.second-description {
+    display:[[ Display Second Paragraph | enum(none, block, inline )| none | {group: 1 Text Configuration}]];
+    font-size: [[Second Paragraph size in px | number | 16 | { group: 1 Text Configuration } ]]px;
 }
 
 #bx-modal_overlay .bx-modal_button-wrapper {
@@ -52,13 +72,16 @@
     margin: auto;
 }
 
+/* call to action button */
 #bx-modal_overlay .bx-modal_button {
     display: inline-block;
     border-radius: 4px;
-    color: #fff;
-    background-color: [[ button color | colour | { required: true } ]];
     padding: 10px 23px;
+    color: [[ Button Text Color | colour | #fff | { required: true, group: 2 Button Configuration } ]];
+    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: 2 Button Configuration } ]];
+    font-size: [[Button Text Sixe in px | number | 16 | { group: 2 Button Configuration } ]]px;
 }
+
 #bx-modal_overlay .bx-modal_dismiss-wrapper {
     display: flex;
     margin-top: auto;
@@ -76,11 +99,12 @@
 
 /* close button */
 .bx-modal__btn-close-icon {
-    background: transparent;
+    background: [[ X Background Color | colour | #fff|{ required: true, group: 3 Closing Button Configuration } ]];
     top: 10px;
     right: 10px;
     width: 30px;
     height: 30px;
+    border-radius:15px;
     margin-top: 10px;
     margin-right: 10px;
     position: absolute;
@@ -94,8 +118,8 @@
 .bx-modal__btn-close-icon:after {
     background: transparent;
     content: "";
-    height: 30px;
-    border-left: 2px solid #75808F;
+    height: 20px;
+    border-left: 2px solid [[ X Color ]];
     position: absolute;
     margin: auto;
     transform: rotate(45deg);
@@ -104,8 +128,8 @@
 .bx-modal__btn-close-icon:before {
     background: transparent;
     content: "";
-    height: 30px;
-    border-left: 2px solid #000;
+    height: 20px;
+    border-left: 2px solid [[ X Color ]];
     margin: auto;
     position: absolute;
     transform: rotate(-45deg);

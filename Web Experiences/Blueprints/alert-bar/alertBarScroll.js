@@ -3,7 +3,7 @@ insertHTMLBefore("body");
 // Close banner
 document.querySelector("#bx_TopBanner").style.display = "none";
 
-const scrollPercentageInput = [[Scroll Percentage | enum(0,25,50,100)||{order: 1}]]
+const scrollPercentageInput = [[ Show at percentage page | enum(0,25,50,100)| 0 |{group: 0 General}]]
 window.onscroll = function() {currentScrollPercentage()};
 function currentScrollPercentage()
 {
