@@ -2,10 +2,10 @@
 /* tested on crome, crome mobile, safari, firefox, edge */
 /*
 Declare variables
-[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group:0 General}]];
-[[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
-[[Text Color | colour |#444| { group: 1 Text Configuration }]];
-[[ Background Color | colour | #eeeeee| { required: true, group: 0 General } ]]
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group: General}]];
+[[X Color | colour | #f88  | {group: Closing Button Configuration}]]
+[[Text Color | colour |#444| { group: Text Configuration }]];
+[[ Background Color | colour | #eeeeee| { required: true, group: General } ]]
 */
 
 /* Hide original top banner (in case it"s present) */
@@ -37,7 +37,7 @@ body.show-TopBanner {
     z-index: 99998;
     height: 71px;
     width: 100vw;
-    [[Position | enum(Top, Bottom)| Top | { required: true, group: 0 General } ]]: 0;
+    [[Position | enum(Top, Bottom)| Top | { required: true, group: General } ]]: 0;
     background: [[ Background Color ]];
     font-family: [[ Font ]];
     width: 100vw;
@@ -58,7 +58,7 @@ body.show-TopBanner {
 /* Banner text */
 #bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--span {
     color: [[Text Color]];
-    font-size: [[ Title Text Font Size | number | 18 | { group: 1 Text Configuration }]]px;
+    font-size: [[ Title Text Font Size | number | 18 | { group: Text Configuration }]]px;
     flex-basis: 400px;
     flex-grow: 2;
     text-align: center;
@@ -89,9 +89,9 @@ body.show-TopBanner {
     border: none;
     margin-right: 10px;
     margin-left: 10px;
-    color: [[ Button Text Color | colour | #fff | { required: true, group: 2 Button Configuration } ]];
-    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: 2 Button Configuration } ]];
-    font-size: [[Button Text Sixe in px | number | 16 | { group: 2 Button Configuration } ]]px;
+    color: [[ Button Text Color | colour | #fff | { required: true, group: Button Configuration } ]];
+    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: Button Configuration } ]];
+    font-size: [[Button Text Sixe in px | number | 16 | { group: Button Configuration } ]]px;
     height:30px;
     padding: 0px
 }
@@ -145,18 +145,18 @@ body.show-TopBanner {
     background: [[ Background Color ]];
     margin: 20% auto;
     box-shadow: 0 2px 10px 6px rgba(0,0,0,0.3);
-    width: [[ Pop-up Size | enum(30%, 40%, 50%,75%) | 40%| {group: 5 Thank you message}]];
+    width: [[ Pop-up Size | enum(30%, 40%, 50%,75%) | 40%| {group: Thank you message}]];
     min-height: 230px;
     border: none;
     padding: 20px 38px;
-    border-radius : [[ Pop-up Border Radius (in PX) | number | 5 | {group: 5 Thank you message}]]px;
+    border-radius : [[ Pop-up Border Radius (in PX) | number | 5 | {group: Thank you message}]]px;
     min-width: 300px;
     font-family: [[ Font ]]; 
 }
 
 /* Title */
 #bx-{{ref}} #bx-thank_you_modal .bx-modal_content h3 {
-    font-size: [[ POP-UP Title size in px | number | 28 | {  group: 5 Thank you message} ]]px;
+    font-size: [[ POP-UP Title size in px | number | 28 | {  group: Thank you message} ]]px;
     font-weight: bold;
     margin: auto;
     color: [[ Text Color]];
@@ -167,7 +167,7 @@ body.show-TopBanner {
     text-align: center;
     padding: 12px 0;
     margin: 0;
-    font-size: [[ Pop-Up Description size in px | number | 22 | { group: 5 Thank you message} ]]px;
+    font-size: [[ Pop-Up Description size in px | number | 22 | { group: Thank you message} ]]px;
     margin: auto;
     line-height: 28px;
     color: [[ Text Color]];
@@ -175,7 +175,7 @@ body.show-TopBanner {
 
 /* close button */
 #bx-{{ref}} .bx__btn-close__icon {
-    background: [[ X Background Color | colour | #fff|{ required: true, group: 3 Closing Button Configuration } ]];
+    background: [[ X Background Color | colour | #fff|{ required: true, group: Closing Button Configuration } ]];
     top: 20px; 
     right: 15px;
     width: 30px;

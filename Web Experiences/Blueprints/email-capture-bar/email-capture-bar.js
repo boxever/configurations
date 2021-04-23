@@ -18,7 +18,7 @@ const bxCloseButtonPress = document.querySelector(".bx__btn-close__icon");
 let isBannerBeenClosed = false;
 
 //trigger experience
-const scrollPercentageInput = [[ Show at percentage page | enum(0,25,50,100)| 0 |{group: 0 General}]];
+const scrollPercentageInput = [[ Show at percentage page | enum(0,25,50,100)| 0 |{group: General}]];
 
 
 // Listeners
