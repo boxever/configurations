@@ -1,29 +1,36 @@
+//make experience unique
+var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);
+var styleTag = document.getElementById('style-' + variant.ref);
+if (styleTag) {
+    styleTag.innerHTML = compiledCSS;
+}
+////
+
 insertHTMLBefore("body");
 
-// Close banner
-document.querySelector("#bx_TopBanner").style.display = "none";
+// declarations
+const bxButton = document.querySelector("#bx-"+variant.ref+ ' #bx_TopBanner-button');
+const bxCloseButton = document.querySelector("#bx-"+variant.ref+ ' .bx__btn-close');
+const bxExperience = document.querySelector("#bx-"+variant.ref+ ' #bx_TopBanner');
 
-const scrollPercentageInput = [[Scroll Percentage | enum(0,25,50,100)||{order: 1}]]
+// start with hidden banner (show on scroll)
+bxExperience.style.display = "none";
+
+//accept from template when to trigger the experience
+const scrollPercentageInput = [[ Show at percentage page | enum(0,25,50,100)| 0 |{group: General}]];
+
+//Listen on scroll, if scrolled enough start experience
 window.onscroll = function() {currentScrollPercentage()};
-function currentScrollPercentage()
-{
+const currentScrollPercentage= ()=>{
     const scrollPercentage = Math.round((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
-    // console.log(scrollPercentage)
     if (scrollPercentage > scrollPercentageInput){
-        document.querySelector("#bx_TopBanner").style.display = "block";
+        bxExperience.style.display = "block";
         document.body.classList.add("show-TopBanner");
     }
 }
 
-document.querySelector(".bx__btn-close").addEventListener("click", function(){
-    document.querySelector("#bx_TopBanner").style.display = "none";
-    document.body.classList.remove("show-TopBanner");
-});
-
-const bxButtonPress = document.getElementById('bx_TopBanner-button');
-const bxCloseButtonPress = document.getElementById('bx_TopBanner-close');
-
-function sendDataToBoxever(eventType) {
+// declare BX function event
+const sendDataToBoxever = (eventType) =>{
     var eventToSent = {
         "channel": "WEB",
         "type": eventType,
@@ -32,12 +39,22 @@ function sendDataToBoxever(eventType) {
         "interactionID":"OOB_EXP",
 	    "interactionName": "ALERT_BAR_SCROLL"
     };
-    Boxever.eventCreate(eventToSent, function (data) { }, 'json');
+    Boxever.eventCreate(eventToSent, (data)=>{ }, 'json');
 }
-bxButtonPress.onclick = function() {
-   sendDataToBoxever("INTERACTION_CLICKED")
-   location.href = "[[Button Link]]";
-};
-bxCloseButtonPress.onclick = function() {
-   sendDataToBoxever("INTERACTION_DISMISSED")
-};
+
+//Listen on X button
+bxCloseButton.addEventListener("click", ()=>{
+    bxExperience.style.display = "none";
+    document.body.classList.remove("show-TopBanner");
+    sendDataToBoxever("INTERACTION_DISMISSED")
+});
+
+// Listen on CTA button
+bxButton.onclick = ()=> {
+    sendDataToBoxever("INTERACTION_CLICKED")
+    location.href = "[[Button Link]]";
+ };
+ 
+
+
+
