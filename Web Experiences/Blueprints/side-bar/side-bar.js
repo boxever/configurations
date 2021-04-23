@@ -29,7 +29,7 @@ bxSidebarClose.onclick = ()=> {
 
 bxSidebarCta.onclick = ()=> {
     sendInteractionToBoxever("CLICKED");
-    window.location.href = "[[Button destination URL | string | # | {required:true, group: 2 Button Configuration }]]";
+    window.location.href = "[[Button destination URL | string | # | {required:true, group: Button Configuration }]]";
 }
 
 const sendInteractionToBoxever = (interactionType) =>{

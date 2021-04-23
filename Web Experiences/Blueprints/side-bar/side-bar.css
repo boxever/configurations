@@ -1,8 +1,8 @@
 /* accomodate every size screen by default */
 /* tested on crome, crome mobile, safari, firefox, edge */
 /*
-[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Optima| {group:0 General}]];
-[[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Optima| {group: General}]];
+[[X Color | colour | #f88  | {group: Closing Button Configuration}]]
 */
 
 /* experience container */
@@ -12,7 +12,7 @@
     right: -1000px;
     height: 100%;
     width: 300px;
-    background-color: [[ BackgroundColor | colour | #eeeeee| { required: true, group: 0 General } ]];
+    background-color: [[ BackgroundColor | colour | #eeeeee| { required: true, group: General } ]];
     z-index: 99999;
     transition: right 1.6s ease-in-out;
     box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0,0,0,.1);
@@ -40,7 +40,7 @@
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    background-image: url("[[Image URL | string |  | {group: 0 General} ]]");
+    background-image: url("[[Image URL | string |  | {group: General} ]]");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -56,9 +56,9 @@
     margin-top: 28px;
     line-height: 1.5;
     margin: 0;
-    font-size: [[Title size in px | number | 28 | { group: 1 Text Configuration } ]]px;
+    font-size: [[Title size in px | number | 28 | { group: Text Configuration } ]]px;
     font-weight: bold;
-    color: [[ Title-color | colour | #444 | { required: true, group: 1 Text Configuration } ]];
+    color: [[ Title-color | colour | #444 | { required: true, group: Text Configuration } ]];
     font-family: [[Font]];
 
 }
@@ -67,10 +67,10 @@
  #bx-{{ref}} #bx-sidebar .bx-sidebar__body p {
     padding: 12px 0;
     margin: 0;
-    font-size: [[Description size in px | number | 22 | { group: 1 Text Configuration } ]]px;
+    font-size: [[Description size in px | number | 22 | { group: Text Configuration } ]]px;
     margin: auto;
     line-height: 28px;
-    color: [[ Text-color | colour | #444 | { required: true, group: 1 Text Configuration} ]];
+    color: [[ Text-color | colour | #444 | { required: true, group: Text Configuration } ]];
 
 }
 
@@ -81,9 +81,9 @@
     color: #fff;
     padding: 10px 30px;
     cursor: pointer;
-    color: [[ Button Text Color | colour | #fff | { required: true, group: 2 Button Configuration } ]];
-    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: 2 Button Configuration } ]];
-    font-size: [[Button Text Sixe in px | number | 16 | { group: 2 Button Configuration } ]]px;
+    color: [[ Button Text Color | colour | #fff | { required: true, group: Button Configuration } ]];
+    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: Button Configuration } ]];
+    font-size: [[Button Text Sixe in px | number | 16 | { group: Button Configuration } ]]px;
     width: 100%;
     text-align: center;
     text-decoration: none;
@@ -96,7 +96,7 @@
 
 /* close button */
  #bx-{{ref}} .bx__btn-close__icon {
-    background: [[ X Background Color | colour | #fff|{ required: true, group: 3 Closing Button Configuration } ]];
+    background: [[ X Background Color | colour | #fff|{ required: true, group: Closing Button Configuration } ]];
     top: 20px;  
     left: 15px;
     width: 30px;
@@ -142,6 +142,6 @@
      #bx-{{ref}} #bx-sidebar .bx-sidebar__body p {
         padding: 10px 0;
         margin: 0;
-        font-size: [[Description size in px (on mobile) | number | 14 | { group: 1 Text Configuration } ]]px;
+        font-size: [[Description size in px (on mobile) | number | 14 | { group: Text Configuration } ]]px;
     }
 }
