@@ -2,10 +2,10 @@
 /* tested on crome, crome mobile, safari, firefox, edge */
 
 /*
-[[Background Colour | colour |#eeeeee| {group: 0 General}]]
-[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) | Arial|{group: 0 General}]];
-[[Text Colour | colour | #4D4D4D | {group: 1 Text Configuration }]]
-[[X Color | colour | #f88  | {group: 3 Closing Button Configuration}]]
+[[Background Colour | colour |#eeeeee| {group: General}]]
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) | Arial|{group: General}]];
+[[Text Colour | colour | #4D4D4D | {group: Text Configuration }]]
+[[X Color | colour | #f88  | {group: Closing Button Configuration}]]
 */
 
 
@@ -14,12 +14,12 @@
     position: fixed;
     width: 435px;
     height: 325px;
-    [[ Position | enum(Left, Right)| Right|{ values(left, right), , group: 0 General }]]: 5px;
+    [[ Position | enum(Left, Right)| Right|{ values(left, right), , group: General }]]: 5px;
     bottom: -1000px;
     z-index: 999999;
     transition: bottom .6s ease-in-out;
     margin-bottom: 0;
-    border-radius: [[ Pop-up Border-radius in px | number| 5|{ group: 0 General }]]px;
+    border-radius: [[ Pop-up Border-radius in px | number| 5|{ group: General }]]px;
     background: [[Background Colour]];
     overflow: hidden;
     box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0,0,0,.1);
@@ -107,9 +107,9 @@
     text-align: center;
     cursor: pointer;
     border: none;
-    color: [[ Button Text Color | colour | #fff | { required: true, group: 2 Button Configuration } ]];
-    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: 2 Button Configuration } ]];
-    font-size: [[Button Text Sixe in px | number | 16 | { group: 2 Button Configuration } ]]px;
+    color: [[ Button Text Color | colour | #fff | { required: true, group: Button Configuration } ]];
+    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: Button Configuration } ]];
+    font-size: [[Button Text Sixe in px | number | 16 | { group: Button Configuration } ]]px;
     text-decoration: none;
 }
 
@@ -126,7 +126,7 @@
 
 /* close button */
 #bx-{{ref}} .bx__btn-close__icon {
-    background: [[ X Background Color | colour | #fff|{ required: true, group: 3 Closing Button Configuration } ]];
+    background: [[ X Background Color | colour | #fff|{ required: true, group: Closing Button Configuration } ]];
     top: 20px; 
     right: 15px;
     width: 30px;
