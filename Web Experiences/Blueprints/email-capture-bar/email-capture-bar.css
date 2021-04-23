@@ -23,7 +23,7 @@ body.show-TopBanner {
     margin-top: 71px !important;
 }
 
-/* Banner styling */
+/* Banner's container styling */
 #bx-{{ref}} #bx_TopBanner {
     -webkit-box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
     -moz-box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
@@ -31,6 +31,7 @@ body.show-TopBanner {
     min-width: 330px;
 }
 
+/* Banner's container styling */
 #bx-{{ref}} #bx_TopBanner {
     position: fixed;
     z-index: 99998;
@@ -44,6 +45,7 @@ body.show-TopBanner {
     display: flex;
 }
 
+/* Banner styling */
 #bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {
     position: relative;
     display: flex;
@@ -53,6 +55,7 @@ body.show-TopBanner {
     max-width: 90%;
 }
 
+/* Banner text */
 #bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--span {
     color: [[Text Color]];
     font-size: [[ Title Text Font Size | number | 18 | { group: 1 Text Configuration }]]px;
@@ -62,6 +65,7 @@ body.show-TopBanner {
     margin: auto;
 }
 
+/* email input and buttons container */
 #bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner .bx-email_section{
     display: flex;
     justify-content: center;
@@ -71,10 +75,11 @@ body.show-TopBanner {
     max-height: 30px; 
     width: 300px; 
 }
+/* CTA button container */
 #bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner .bx-email_section .bx-modal_button-wrapper{
     min-width: 170px; 
 }
-
+/* CTA button */
 #bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--button {
     border-radius: 4px;
     display: inline-block;
@@ -91,16 +96,19 @@ body.show-TopBanner {
     padding: 0px
 }
 
+/* CTA button on hover*/
 #bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--button:hover {
     transform: scale(1.1);
 }
 
+/* CTA button on focus*/
 #bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--button:focus {
     /* border: none; */
     outline: 0;
     box-shadow: none!important;
 }
 
+/* email input */
 #bx-{{ref}} #bx_TopBanner .bx-email_input {
     color: [[Text Color]];
     font-size: 18px;
@@ -114,7 +122,7 @@ body.show-TopBanner {
 }
 
 
-/* dark background */
+/* dark background  after sending the email ( Thank you modal )*/
 #bx-{{ref}} #bx-thank_you_modal{
     display: none;
     justify-content: center;
@@ -129,7 +137,7 @@ body.show-TopBanner {
     background-color: rgba(0,0,0,0.4);
 }
 
-/* modal General */
+/* Thank you modal General */
 #bx-{{ref}} #bx-thank_you_modal .bx-modal_content {
     display: flex;
     flex-direction: column;
@@ -182,7 +190,7 @@ body.show-TopBanner {
     align-items: center;
     cursor: pointer;
 }
-
+/* close button right side of X  */
 #bx-{{ref}} .bx__btn-close__icon:after {
     background: transparent;
     content: "";
@@ -193,7 +201,7 @@ body.show-TopBanner {
     transform: rotate(45deg);
     left:14px;
 }
-
+/* close button left side of X  */
 #bx-{{ref}} .bx__btn-close__icon:before {
     background: transparent;
     content: "";
@@ -205,6 +213,7 @@ body.show-TopBanner {
     left:14px;
 }
 
+/* mobile & tablet styling */
 @media only screen and (max-width: 800px) {
     body.show-TopBanner {
         margin-top: 100px !important;
