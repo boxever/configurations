@@ -4,7 +4,7 @@ var styleTag = document.getElementById('style-' + variant.ref)
 if (styleTag) {
     styleTag.innerHTML = compiledCSS;
 }
-/////
+//make experience unique END
 
 insertHTMLAfter("body");
 
@@ -20,12 +20,10 @@ let bxSidebarCta = bxContent.querySelector("#bx-sidebar__primary-action");
 let bxSidebarClose = bxContent.querySelector(".bx__btn-close__icon");
 
 // Listeners
-
 bxSidebarClose.onclick = ()=> {
     bxContent.classList.remove("open");
     sendInteractionToBoxever("DISMISSED");
 }
-
 
 bxSidebarCta.onclick = ()=> {
     sendInteractionToBoxever("CLICKED");
