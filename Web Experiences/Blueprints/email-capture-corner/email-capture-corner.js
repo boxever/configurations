@@ -1,10 +1,10 @@
-//make experience unique
+//Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.
 var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);
 var styleTag = document.getElementById('style-' + variant.ref);
 if (styleTag) {
     styleTag.innerHTML = compiledCSS;
 }
-/////
+//End
 
 insertHTMLAfter("body");
 
@@ -21,7 +21,7 @@ const bxCTA = document.getElementById('bx-transition-card--primary');
 
 // LIsteners
 //on Email submission
-bxCTA.onclick = ()=>{
+bxCTA.onclick = function(){
     let bxEmail = document.getElementById("bx-email_input").value;
     let emailVerified = validateEmail(bxEmail);
     emailVerified ?
@@ -31,27 +31,24 @@ bxCTA.onclick = ()=>{
         document.getElementById("bx-email_input").style.backgroundColor = 'rgba(200,0,0,0.1)';
 };
 
-bxClose.onclick = ()=>{
+bxClose.onclick = function(){
     bxContent.style.display = "none";
-    sendDataToBoxever("INTERACTION_DISMISSED")
+    sendInteractionToBoxever("INTERACTION_DISMISSED")
 }
-
 
 //declare functions
-const sendDataToBoxever = (eventType)=>{
+const sendInteractionToBoxever = function(interactionType){
     let eventToSend = {
         "channel": "WEB",
-        "type": eventType,
+        "type": "[[ Experience ID | String | SIDE_BAR | {required: true}]]_" + interactionType,
         "pos": window._boxever_settings.pointOfSale,
-        "browser_id": Boxever.getID(),
-        "interactionID":"OOB_EXP",
-	    "interactionName": "CORNER_POPUP_EMAIL"
+        "browser_id": Boxever.getID()
     };
-    Boxever.eventCreate(eventToSend, (data)=>{}, 'json');
+    Boxever.eventCreate(eventToSend, (data)=> { }, 'json');
 }
 
-const onSuccessValidation = (email)=>{
-    sendDataToBoxever("INTERACTION_IDENTITY")
+const onSuccessValidation = function(email){
+    sendInteractionToBoxever("INTERACTION_IDENTITY")
     let event = {
         "channel": "WEB",
         "type": "IDENTITY",
@@ -62,7 +59,7 @@ const onSuccessValidation = (email)=>{
         "browser_id": Boxever.getID(),
         "email":email
     };
-    Boxever.eventCreate(event, (data)=>{}, 'json');
+    Boxever.eventCreate(event, function(data){}, 'json');
     
     bxEmailCaptureContainer.style.display = "none";
     let X = document.querySelector(".bx__btn-close__icon");
@@ -72,7 +69,7 @@ const onSuccessValidation = (email)=>{
     setTimeout(function(){ document.querySelector('#bx-transition-card').style.display= 'none'; }, 1500);
 }
 
-const validateEmail = (bxEmail) =>{
+const validateEmail = function(bxEmail){
     let validation = false;
     let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(bxEmail);
     mailformat ? validation = true: validation = false;

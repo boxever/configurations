@@ -1,6 +1,7 @@
 /* accomodate every size screen by default */
-/* tested on crome, crome mobile, safari, firefox, edge */
+/* tested on chrome, crome mobile, safari, firefox, edge */
 
+/* Declare Boxever Template Variables */
 /*
 [[Background Colour | colour |#eeeeee| {group: General}]]
 [[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) | Arial|{group: General}]];
@@ -8,13 +9,15 @@
 [[X Color | colour | #f88  | {group: Closing Button Configuration}]]
 */
 
+/* The following Experience is populated with a unique variant identifier: { { ref } } 
+when deployed to ensure CSS does not impact styling of other elements. */
 
 /* experience container styling */
 #bx-{{ref}} #bx-transition-card {
     position: fixed;
     width: 435px;
     height: 325px;
-    [[ Position | enum(Left, Right)| Right|{ values(left, right), , group: General }]]: 5px;
+    [[ Position | enum(Left, Right)| Right|{ values(left, right), group: General }]]: 5px;
     bottom: -1000px;
     z-index: 999999;
     transition: bottom .6s ease-in-out;
@@ -107,8 +110,8 @@
     text-align: center;
     cursor: pointer;
     border: none;
-    color: [[ Button Text Color | colour | #fff | { required: true, group: Button Configuration } ]];
-    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: Button Configuration } ]];
+    color: [[ Button Text Color | colour | #fff | {  group: Button Configuration } ]];
+    background-color: [[ Button Color | colour | #4caf50|{  group: Button Configuration } ]];
     font-size: [[Button Text Sixe in px | number | 16 | { group: Button Configuration } ]]px;
     text-decoration: none;
 }
@@ -126,7 +129,7 @@
 
 /* close button */
 #bx-{{ref}} .bx__btn-close__icon {
-    background: [[ X Background Color | colour | #fff|{ required: true, group: Closing Button Configuration } ]];
+    background: [[ X Background Color | colour | #fff|{  group: Closing Button Configuration } ]];
     top: 20px; 
     right: 15px;
     width: 30px;
