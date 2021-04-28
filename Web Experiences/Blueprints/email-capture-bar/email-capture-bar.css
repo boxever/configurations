@@ -2,14 +2,12 @@
 /* tested on chrome, crome mobile, safari, firefox, edge */
 /*
 
-
 Declare Boxever Template Variables
 [[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group: General}]];
 [[X Color | colour | #f88  | {group: Closing Button Configuration}]]
 [[Text Color | colour |#444| { group: Text Configuration }]];
 [[ Background Color | colour | #eeeeee| {  group: General } ]]
 */
-
 
 /* The following Experience is populated with a unique variant identifier: { { ref } }
  when deployed to ensure CSS does not impact styling of other elements. */
