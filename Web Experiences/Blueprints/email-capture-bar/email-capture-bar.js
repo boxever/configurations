@@ -7,6 +7,8 @@ if (styleTag) {
 // End
 
 insertHTMLBefore("body");
+// add space to the body to show experience
+document.body.classList.add("show-TopBanner");
 
 // declarations
 const bxButtonPress = document.getElementById('bx_TopBanner-button');
