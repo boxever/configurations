@@ -15,13 +15,13 @@ const bxButtonPress = document.getElementById('bx_TopBanner-button');
 const bxCloseButtonPress = document.querySelector(".bx__btn-close__icon");
 let isBannerBeenClosed = false;
 
-// when sending email, verify ? sendDataToBoxever() or "stop event" ;
+// when sending email, if is verified sendInteractionToBoxever() or "stop event" ;
 bxButtonPress.onclick = function(){
     isBannerBeenClosed = true;
     let emailVerified = validateEmail();
     if(emailVerified){
         hideBar();
-        sendDataToBoxever("INTERACTION_CLICKED")
+        sendInteractionToBoxever("INTERACTION_CLICKED")
         showThankYou();
     }else{
         //friendly error
@@ -34,7 +34,7 @@ bxButtonPress.onclick = function(){
 bxCloseButtonPress.onclick = function(){
     isBannerBeenClosed = true;
     hideBar();
-   sendDataToBoxever("INTERACTION_DISMISSED")
+    sendInteractionToBoxever("INTERACTION_DISMISSED")
 };
 
 // functions
@@ -68,8 +68,6 @@ const sendInteractionToBoxever = function(interactionType) {
         "browser_id": Boxever.getID()
     };
     Boxever.eventCreate(eventToSend, function(data) { }, 'json');
-    
-    sendInteractionToBoxever("CLICKED");
 }
 
 // validate text if Mail format
