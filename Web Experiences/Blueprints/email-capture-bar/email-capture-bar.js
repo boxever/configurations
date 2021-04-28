@@ -1,32 +1,20 @@
-//make experience unique
+// Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.
 var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);
 var styleTag = document.getElementById('style-' + variant.ref);
 if (styleTag) {
     styleTag.innerHTML = compiledCSS;
 }
-////
+// End
 
 insertHTMLBefore("body");
-
-// start with hidden banner (show on scroll)
-let banner = document.querySelector("#bx_TopBanner");
-banner.style.display = "none";
 
 // declarations
 const bxButtonPress = document.getElementById('bx_TopBanner-button');
 const bxCloseButtonPress = document.querySelector(".bx__btn-close__icon");
 let isBannerBeenClosed = false;
 
-//trigger experience
-const scrollPercentageInput = [[ Show at percentage page | enum(0,25,50,100)| 0 |{group: General}]];
-
-
-// Listeners
-// when scrolling the experience will trigger
-window.onscroll = ()=>{ currentScrollPercentage()}
-
 // when sending email, verify ? sendDataToBoxever() or "stop event" ;
-bxButtonPress.onclick = ()=>{
+bxButtonPress.onclick = function(){
     isBannerBeenClosed = true;
     let emailVerified = validateEmail();
     if(emailVerified){
@@ -41,14 +29,14 @@ bxButtonPress.onclick = ()=>{
 };
 
 //dismiss bar;
-bxCloseButtonPress.onclick = () =>{
+bxCloseButtonPress.onclick = function(){
     isBannerBeenClosed = true;
     hideBar();
    sendDataToBoxever("INTERACTION_DISMISSED")
 };
 
 // functions
-const currentScrollPercentage = ()=> {
+const currentScrollPercentage = function(){
     const scrollPercentage = Math.round((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
 
     if (scrollPercentage > scrollPercentageInput && !isBannerBeenClosed){
@@ -57,33 +45,33 @@ const currentScrollPercentage = ()=> {
     }
 }
 
-const showThankYou= ()=>{
+const showThankYou= function(){
     let thanksMessage = document.querySelector('#bx-thank_you_modal');
     thanksMessage.style.display = "block";
 
-    setTimeout(()=>{ thanksMessage.style.display= 'none'; }, 1500);
+    setTimeout(function(){ thanksMessage.style.display= 'none'; }, 1500);
 }
 
 // dismiss bar
-const hideBar = ()=>{
+const hideBar = function(){
     document.querySelector("#bx_TopBanner").style.display = "none";
     document.body.classList.remove("show-TopBanner");
 }
 
-const sendDataToBoxever = (eventType)=>{
-    let eventToSent = {
+const sendInteractionToBoxever = function(interactionType) {
+    let eventToSend = {
         "channel": "WEB",
-        "type": eventType,
+        "type": "[[ Experience ID | String | EMAIL_CAPTURE_BAR | {required: true}]]_" + interactionType,
         "pos": window._boxever_settings.pointOfSale,
-        "browser_id": Boxever.getID(),
-        "interactionID":"OOB_EXP",
-	    "interactionName": "EMAIL_CAPTURE_BAR"
+        "browser_id": Boxever.getID()
     };
-    Boxever.eventCreate(eventToSent, (data)=>{ }, 'json');
+    Boxever.eventCreate(eventToSend, function(data) { }, 'json');
+    
+    sendInteractionToBoxever("CLICKED");
 }
 
 // validate text if Mail format
-const validateEmail = () =>{
+const validateEmail = function(){
     let bxEmail = document.getElementById("bx-email_input").value;
     let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(bxEmail)
     let validation = false;

@@ -1,12 +1,18 @@
 /* accomodate every size screen by default */
-/* tested on crome, crome mobile, safari, firefox, edge */
+/* tested on chrome, crome mobile, safari, firefox, edge */
 /*
-Declare variables
+
+
+Declare Boxever Template Variables
 [[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group: General}]];
 [[X Color | colour | #f88  | {group: Closing Button Configuration}]]
 [[Text Color | colour |#444| { group: Text Configuration }]];
-[[ Background Color | colour | #eeeeee| { required: true, group: General } ]]
+[[ Background Color | colour | #eeeeee| {  group: General } ]]
 */
+
+
+/* The following Experience is populated with a unique variant identifier: { { ref } }
+ when deployed to ensure CSS does not impact styling of other elements. */
 
 /* Hide original top banner (in case it"s present) */
 .operational-updates {
@@ -89,8 +95,8 @@ body.show-TopBanner {
     border: none;
     margin-right: 10px;
     margin-left: 10px;
-    color: [[ Button Text Color | colour | #fff | { required: true, group: Button Configuration } ]];
-    background-color: [[ Button Color | colour | #4caf50|{ required: true, group: Button Configuration } ]];
+    color: [[ Button Text Color | colour | #fff | {  group: Button Configuration } ]];
+    background-color: [[ Button Color | colour | #4caf50|{ group: Button Configuration } ]];
     font-size: [[Button Text Sixe in px | number | 16 | { group: Button Configuration } ]]px;
     height:30px;
     padding: 0px
@@ -175,7 +181,7 @@ body.show-TopBanner {
 
 /* close button */
 #bx-{{ref}} .bx__btn-close__icon {
-    background: [[ X Background Color | colour | #fff|{ required: true, group: Closing Button Configuration } ]];
+    background: [[ X Background Color | colour | #fff|{  group: Closing Button Configuration } ]];
     top: 20px; 
     right: 15px;
     width: 30px;
