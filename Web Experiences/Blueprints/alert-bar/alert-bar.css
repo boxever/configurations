@@ -1,11 +1,15 @@
 /* accomodate every size screen by default */
-/* tested on crome, crome mobile, safari, firefox, edge */
+/* tested on chrome, crome mobile, safari, firefox, edge */
 
 /*
-Declare variables
+Declare Boxever Template Variables
 [[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group: General}]];
 [[X Color | colour | #f88  | {group: Closing Button Configuration}]]
 */
+
+
+/* The following Experience styling is populated with a unique variant identifier: { { ref } }
+when deployed to ensure CSS does not impact styling of other elements. */
 
 /* Hide original top banner (in case it"s present) */
 .operational-updates {
@@ -37,7 +41,7 @@ body.show-TopBanner {
     height: 71px;
     width: 100vw;
     [[Position | enum(Top, Bottom)| Top | { required: true, group: General } ]]: 0;
-    background: [[ Bar Background Color | colour | #eeeeee| { required: true, group: General } ]];
+    background: [[ Bar Background Color | colour | #eeeeee| { group: General } ]];
     font-family: [[ Font ]]
 }
 
