@@ -20,24 +20,22 @@ let bxSidebarCta = bxContent.querySelector("#bx-sidebar__primary-action");
 let bxSidebarClose = bxContent.querySelector(".bx__btn-close__icon");
 
 // Listeners
-bxSidebarClose.onclick = ()=> {
+bxSidebarClose.onclick = function(){
     bxContent.classList.remove("open");
     sendInteractionToBoxever("DISMISSED");
 }
 
-bxSidebarCta.onclick = ()=> {
+bxSidebarCta.onclick = function(){
     sendInteractionToBoxever("CLICKED");
     window.location.href = "[[Button destination URL | string | # | {required:true, group: Button Configuration }]]";
 }
 
-const sendInteractionToBoxever = (interactionType) =>{
-    let eventToSent = {
+const sendInteractionToBoxever = function(interactionType){
+    let eventToSend = {
         "channel": "WEB",
-        "type": "INTERACTION",
+        "type": "[[ Experience ID | String | SIDE_BAR | {required: true}]]_" + interactionType,
         "pos": window._boxever_settings.pointOfSale,
-        "browser_id": Boxever.getID(),
-        "interactionID":"BX_SIDEBAR",
-        "interactionType": interactionType
+        "browser_id": Boxever.getID()
     };
-    Boxever.eventCreate(eventToSent, (data)=> { }, 'json');
+    Boxever.eventCreate(eventToSend, function(data){ }, 'json');
 }
