@@ -16,27 +16,27 @@ const bxButton = document.querySelector("#bx-"+variant.ref+ ' #bx_TopBanner-butt
 const bxCloseButton = document.querySelector("#bx-"+variant.ref+ ' .bx__btn-close');
 const bxExperience = document.querySelector("#bx-"+variant.ref+ ' #bx_TopBanner');
 
-// eclare BX function event
-const sendInteractionToBoxever = (interactionType) =>{
+// Declare BX function event
+const sendInteractionToBoxever = function(interactionType){
     let eventToSend = {
         "channel": "WEB",
         "type": "[[ Experience ID | String | ALERT_BAR | {required: true}]]_" + interactionType,
         "pos": window._boxever_settings.pointOfSale,
         "browser_id": Boxever.getID()
     };
-    Boxever.eventCreate(eventToSend, (data)=> { }, 'json');
+    Boxever.eventCreate(eventToSend, function(data){ }, 'json');
 }
 
 //Listen on X button
 bxCloseButton.addEventListener("click", function(){
     bxExperience.style.display = "none";
     document.body.classList.remove("show-TopBanner");
-    sendInteractionToBoxever("INTERACTION_DISMISSED")
+    sendInteractionToBoxever("DISMISSED")
 });
 
 // Listen on CTA button
 bxButton.onclick = function(){
-    sendInteractionToBoxever("INTERACTION_CLICKED")
+    sendInteractionToBoxever("CLICKED")
     location.href = "[[Button Link]]";
 };
  
