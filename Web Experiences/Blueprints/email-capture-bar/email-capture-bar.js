@@ -21,7 +21,7 @@ bxButtonPress.onclick = function(){
     let emailVerified = validateEmail();
     if(emailVerified){
         hideBar();
-        sendInteractionToBoxever("INTERACTION_CLICKED")
+        sendInteractionToBoxever("CLICKED")
         showThankYou();
     }else{
         //friendly error
@@ -34,7 +34,7 @@ bxButtonPress.onclick = function(){
 bxCloseButtonPress.onclick = function(){
     isBannerBeenClosed = true;
     hideBar();
-    sendInteractionToBoxever("INTERACTION_DISMISSED")
+    sendInteractionToBoxever("DISMISSED")
 };
 
 // functions
