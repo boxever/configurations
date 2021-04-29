@@ -33,7 +33,7 @@ bxCTA.onclick = function(){
 
 bxClose.onclick = function(){
     bxContent.style.display = "none";
-    sendInteractionToBoxever("INTERACTION_DISMISSED")
+    sendInteractionToBoxever("DISMISSED")
 }
 
 //declare functions
@@ -48,7 +48,7 @@ const sendInteractionToBoxever = function(interactionType){
 }
 
 const onSuccessValidation = function(email){
-    sendInteractionToBoxever("INTERACTION_IDENTITY")
+    sendInteractionToBoxever("IDENTITY")
     let event = {
         "channel": "WEB",
         "type": "IDENTITY",
