@@ -1,180 +1,133 @@
+/* accomodate every size screen by default */
+/* tested on chrome, crome mobile, safari, firefox, edge */
 /*
 
-[[Background Colour | colour |#F3F5F7| {order: 3}]]
-[[CTA Colour | colour |#2196f3| {order: 4}]]
-[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri|{order: 5}]];
-[[Text Colour | colour | #4D4D4D | {order: 6}]]
-
+Declare Boxever Template Variables
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri| {group: General}]];
+[[X Color | colour | #f88  | {group: Closing Button Configuration}]]
+[[Text Color | colour |#444| { group: Text Configuration }]];
+[[ Background Color | colour | #eeeeee| {  group: General } ]]
 */
 
+/* The following Experience is populated with a unique variant identifier: { { ref } }
+ when deployed to ensure CSS does not impact styling of other elements. */
+
+/* Hide original top banner (in case it"s present) */
+.operational-updates {
+    display: none !important;
+}
+
+/* Add this clase when "click" close icon */
+.bx_TopBanner--hide {
+    display: none !important;
+}
+
+/* Push content down to allocate top banner */
 body.show-TopBanner {
     margin-top: 71px !important;
 }
 
-
-/* Banner styling */
-
-#bx_TopBanner {
-    -webkit-box-shadow: 0px 0px 4px 0px rgba(9, 9, 9, 0.4);
-    -moz-box-shadow: 0px 0px 4px 0px rgba(9, 9, 9, 0.4);
-    box-shadow: 0px 0px 4px 0px rgba(9, 9, 9, 0.4);
+/* Banner's container styling */
+#bx-{{ref}} #bx_TopBanner {
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
+    box-shadow: 0px 0px 4px 0px rgba(9,9,9,0.4);
+    min-width: 330px;
 }
 
-#bx_TopBanner {
+/* Banner's container styling */
+#bx-{{ref}} #bx_TopBanner {
     position: fixed;
     z-index: 99998;
     height: 71px;
     width: 100vw;
-    [[Position | enum(Top, Bottom)|| {order: 2, values(top, Bottom)}]]: 0;
-    background: [[Background Colour]];
-    font-family: [[Font]];
+    [[Position | enum(Top, Bottom)| Top | { required: true, group: General } ]]: 0;
+    background: [[ Background Color ]];
+    font-family: [[ Font ]];
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
 }
 
-#bx_TopBanner .bx_TopBanner__banner {
-    padding-left: 50px;
-    padding-right: 50px;
-    color: #000;
-    margin: 0 auto;
+/* Banner styling */
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {
     position: relative;
-    height: 71px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-basis: 90%;
+    max-width: 90%;
 }
 
-#bx_TopBanner .bx_TopBanner__banner p {
-    margin: 8px 0;
-    width: 100%;
-    font-family: [[Font]];
+/* Banner text */
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--span {
+    color: [[Text Color]];
+    font-size: [[ Title Text Font Size | number | 18 | { group: Text Configuration }]]px;
+    flex-basis: 400px;
+    flex-grow: 2;
     text-align: center;
+    margin: auto;
 }
 
-#bx_TopBanner .bx-email_section {
+/* email input and buttons container */
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner .bx-email_section{
     display: flex;
-    width: 75%;
     justify-content: center;
-    height: 39px;
+    flex-direction: row;
+    min-width: 300px;
+    margin: auto;
+    max-height: 30px; 
+    width: 300px; 
 }
-#bx_TopBanner .bx-email_input::placeholder {
-    color: #F3F4F4;
-    font-family: [[Font]];
+/* CTA button container */
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner .bx-email_section .bx-modal_button-wrapper{
+    min-width: 170px; 
 }
-#bx_TopBanner .bx-email_input {
+/* CTA button */
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--button {
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 110px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: [[ Button Text Color | colour | #fff | {  group: Button Configuration } ]];
+    background-color: [[ Button Color | colour | #4caf50|{ group: Button Configuration } ]];
+    font-size: [[Button Text Sixe in px | number | 16 | { group: Button Configuration } ]]px;
+    height:30px;
+    padding: 0px
+}
+
+/* CTA button on hover*/
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--button:hover {
+    transform: scale(1.1);
+}
+
+/* CTA button on focus*/
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--button:focus {
+    /* border: none; */
+    outline: 0;
+    box-shadow: none!important;
+}
+
+/* email input */
+#bx-{{ref}} #bx_TopBanner .bx-email_input {
+    color: [[Text Color]];
     font-size: 18px;
     border-radius: 2px;
-    border-width: 1px;
-    background-color: #FFF;
+    background-color: #fff;
+    font-family: [[Font]];
     border: none;
-    color: [[Text Colour]];
-    border-color: #F3F5F7;
-    margin: 0 10px;
-    width: 50%;
-    max-width: 350px;
     padding-left: 10px;
-}
-
-#bx_TopBanner .bx-modal_button-wrapper {
-    display: flex;
-    margin-top: auto;
-    margin: 0 10px;
-}
-
-#bx_TopBanner .bx-modal_button {
-    display: inline-block;
-    border-radius: 4px;
-    color: #fff;
-    background-color: [[CTA Colour]];
-    font-family: [[Font]];
-    padding: 8px 30px;
-    text-decoration: none;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-#bx_TopBanner .bx-text_section {
-    width: 25%;
-    min-width: 200px;
-    font-size: 20px;
-    color: [[Text Colour]];
-    text-align: center;
-    font-family: [[Font]];
-}
-
-#bx_TopBanner .bx-close_section {
-    width: 20%;
-}
-
-#bx_TopBanner #bx-privacy_button {
-    background-color: #999;
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 10px;
-    margin: auto 10px;
-}
-
-#bx_TopBanner .bx-banner_content_container {
-    width: 95%;
-    display: flex;
-    align-items: center;
-}
-
-#bx_TopBanner p {
-    margin: 0;
-}
-
-#bx_TopBanner .bx__btn-close {
-    border: none;
-}
-
-#bx_TopBanner .bx-modal_button {
-    border: none;
-}
-
-#bx_TopBanner .bx__btn-close:hover,
-#bx_TopBanner .bx__btn-close:focus,
-#bx_TopBanner .bx__btn-close:active {
-    background-color: transparent;
-    box-shadow: none;
-    color: #333;
-    text-decoration: none !important;
-    cursor: pointer;
+    max-width: 150px;
+    margin-left: 18px;
 }
 
 
-/* close button */
-
-#bx_TopBanner .bx__btn-close__icon {
-    background: transparent;
-    width: 40px;
-    height: 40px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    float: right;
-}
-
-#bx_TopBanner .bx__btn-close__icon:after {
-    content: "";
-    height: 30px;
-    border-left: 2px solid #75808F;
-    position: absolute;
-    transform: rotate(45deg);
-    left: 28px;
-}
-
-#bx_TopBanner .bx__btn-close__icon:before {
-    content: "";
-    height: 30px;
-    border-left: 2px solid #75808F;
-    position: absolute;
-    transform: rotate(-45deg);
-    left: 28px;
-}
-
-/* Thank You Modal */
-#bx-thank_you_modal {
+/* dark background  after sending the email ( Thank you modal )*/
+#bx-{{ref}} #bx-thank_you_modal{
     display: none;
     justify-content: center;
     align-items: center;
@@ -185,81 +138,100 @@ body.show-TopBanner {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.4);
-    font-family: [[Font]];
+    background-color: rgba(0,0,0,0.4);
 }
 
-#bx-thank_you_modal .bx-modal_content {
+/* Thank you modal General */
+#bx-{{ref}} #bx-thank_you_modal .bx-modal_content {
     display: flex;
     flex-direction: column;
-    position: relative;
-    margin: 0 auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 10px 6px rgba(0, 0, 0, 0.3);
-    width: 250px;
-    min-height: 200px;
+    position:relative;
+    background: [[ Background Color ]];
+    margin: 20% auto;
+    box-shadow: 0 2px 10px 6px rgba(0,0,0,0.3);
+    width: [[ Pop-up Size | enum(30%, 40%, 50%,75%) | 40%| {group: Thank you message}]];
+    min-height: 230px;
     border: none;
-    padding: 40px 38px;
-    align-items: center;
-    justify-content: center;
-    background-color: [[Background Colour]];
+    padding: 20px 38px;
+    border-radius : [[ Pop-up Border Radius (in PX) | number | 5 | {group: Thank you message}]]px;
+    min-width: 300px;
+    font-family: [[ Font ]]; 
 }
 
-#bx-thank_you_modal .bx-modal_content h3 {
-    line-height: 1.5;
-    font-size: 18px;
+/* Title */
+#bx-{{ref}} #bx-thank_you_modal .bx-modal_content h3 {
+    font-size: [[ POP-UP Title size in px | number | 28 | {  group: Thank you message} ]]px;
     font-weight: bold;
-    margin: 0;
-    color: [[Text Colour]];
-    font-family: [[Font]];
+    margin: auto;
+    color: [[ Text Color]];
 }
 
-#bx-thank_you_modal .bx-modal_content p {
+/* text */
+#bx-{{ref}} #bx-thank_you_modal .bx-modal_content p {
+    text-align: center;
     padding: 12px 0;
     margin: 0;
-    font-size: 16px;
+    font-size: [[ Pop-Up Description size in px | number | 22 | { group: Thank you message} ]]px;
+    margin: auto;
     line-height: 28px;
-    color: #000;
-    font-family: [[Font]];
+    color: [[ Text Color]];
 }
 
-@media only screen and (max-width: 700px) {
-  #bx_TopBanner .bx_TopBanner__banner {
-    height: 100%;
-    justify-content: space-around;
-    padding: 20px 0;
-    max-width: 90%;
-  }
+/* close button */
+#bx-{{ref}} .bx__btn-close__icon {
+    background: [[ X Background Color | colour | #fff|{  group: Closing Button Configuration } ]];
+    top: 20px; 
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius:15px;
+    margin-top: 10px;
+    margin-right: 10px;
+    position: absolute;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+/* close button right side of X  */
+#bx-{{ref}} .bx__btn-close__icon:after {
+    background: transparent;
+    content: "";
+    height: 20px;
+    border-left: 2px solid [[ X Color ]];
+    position: absolute;
+    margin: auto;
+    transform: rotate(45deg);
+    left:14px;
+}
+/* close button left side of X  */
+#bx-{{ref}} .bx__btn-close__icon:before {
+    background: transparent;
+    content: "";
+    height: 20px;
+    border-left: 2px solid [[ X Color ]];
+    margin: auto;
+    position: absolute;
+    transform: rotate(-45deg);
+    left:14px;
+}
 
-  #bx_TopBanner .bx_TopBanner__p {
-    flex-direction: column;
-    height: 100%;
-    text-align: center;
-  }
-  
-  #bx_TopBanner {
-    height: 140px;
-  }
-  
-  body.show-TopBanner {
-    margin-top: 140px !important;
-  }
-  
-  #bx_TopBanner .bx-banner_content_container {
+/* mobile & tablet styling */
+@media only screen and (max-width: 800px) {
+    body.show-TopBanner {
+        margin-top: 100px !important;
+    }
+    #bx-{{ref}} #bx_TopBanner{
+        height: 100px;
+    }
+    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {
       flex-direction: column;
-      height: 100%;
-      justify-content: space-around;
-  }
-  
-  #bx_TopBanner .bx-email_section {
-      width: 100%;
-  }
-  
-  #bx_TopBanner .bx-text_section {
-      width: 100%;
-  }
-  
-  #bx_TopBanner .bx-modal_button {
-    padding: 8px 15px;
-  }
+    }
+    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner .bx-email_section{
+        margin-bottom: 5px;
+    }
+    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__p--span {
+        padding: 10px;
+    }
 }

@@ -24,7 +24,7 @@ function sendDataToBoxever(eventType) {
 }
 
 bxButtonPress.onclick = function() {
-    sendDataToBoxever("INTERACTION_IDENTITY")
+    sendDataToBoxever("IDENTITY")
     var event = {
         "channel": "WEB",
         "type": "IDENTITY",
