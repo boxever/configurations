@@ -3,11 +3,9 @@
 <div id="bx_TopBanner">
     <div class="bx_TopBanner__banner">
         <p class="bx_TopBanner__p">
-            <span class="bx_TopBanner__p--span" style="display: inline;">[[Title Text | text |For this bar, we recommend less than 50 characters| {order: 3,max: 50 }]]</span>
-            <button id="bx_TopBanner-button" class="bx_TopBanner__p--button" href="[[Button Link | text |https://www.example.com/ | {order: 12, required: false} ]]">[[Button Text | text |Click Here| {order: 7, max: 15 }]]</button>
+            <span class="bx_TopBanner__p--span" style="display: inline;">[[Title Text | text | For this bar, we recommend less than 50 characters|  {max: 50 , group: Text Configuration}]]</span>
+            <a id="bx_TopBanner-button" class="bx_TopBanner__p--button" href="[[Button Link | text |https://www.example.com/ | { group: Button Configuration ,required: false} ]]">[[Button Text | text | I accept | { group: Button Configuration }]]</a>
         </p>
-        <a class="bx__btn-close" aria-label="Close">
-            <span class="bx__btn-close__icon" id="bx_TopBanner-close"></span>
-        </a>
+        <div class="bx__btn-close"></div>
     </div>
 </div>
