@@ -5,5 +5,7 @@
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    return urlParams.get(targetQueryParameter) === targetValue;
+    if (urlParams.get(targetQueryParameter) === targetValue) {
+        targetingPassed();
+    }
 })();
