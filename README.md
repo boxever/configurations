@@ -1,8 +1,10 @@
-![Image](BxConfig.png "icon")
-Library for all Boxever configurations that can be used in Web Experiences, Full Stack and Decision Models. 
+![Image](https://avatars.githubusercontent.com/u/1051478?s=200&v=4 "icon")
+# Sitecore CDP
+
+Library for all Sitecore CDP configurations that can be used in Web Experiences, Full Stack and Decision Models. 
 
 ### Web Experiences
-Boxever Blueprints allow you to quickly and with no code editing get a [Web Experience](https://documentation.boxever.com/docs/webexperiences) live on your website. Browse our library [here](Web%20Experiences/Blueprints) or choose from the below
+Sitecore CDP Blueprints allow you to quickly and with no code editing get a [Web Experience](https://documentation.boxever.com/docs/webexperiences) live on your website. Browse our library [here](Web%20Experiences/Blueprints) or choose from the below
 
 - [Alert Bar](Web%20Experiences/Blueprints/alert-bar) - An alert bar that can be triggered top or bottom of your website.
 - [Corner Pop-up](Web%20Experiences/Blueprints/corner-popup) - A card with image and call to action that will pop up in the bottom right corner of your website.
