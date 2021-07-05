@@ -22,11 +22,12 @@ bxModal.onclick = function(){
 submitButton.onclick = function() {
     var firstValue = document.querySelector("#range1").value;
     sendFeedbackToBoxever("FEEDBACK", firstValue);
+    bxModal.style.display = "none";
 }
 
 function sendFeedbackToBoxever(eventype, firstValue) {
     var feedbackEvent = {
-        "channel": "WEB",
+        "channel": "",
         "type": eventype,
         "pos": window._boxever_settings.pointOfSale,
         "browser_id": Boxever.getID(),
