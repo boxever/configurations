@@ -1,7 +1,7 @@
 # multiple-page-popup
 This is a multiple-page popup.
 
-![](multiple-page-popup.gif)
+<!-- ![](multiple-page-popup.gif) -->
 
 ## Quickstart
 Copy the HTML/JS/CSS as needed from here to a new [Web Experience](https://documentation.boxever.com/docs/using-custom-code) in Boxever. Once created the following will be configurable components within the experience:
