@@ -1,93 +1,159 @@
+/* accomodate every size screen by default */
+/* tested on chrome, crome mobile, safari, firefox, edge */
 /*
-[[Background Colour | colour |#F3F5F7]]
-[[CTA Colour | colour |#2196f3]]
-[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) |Calibri]];
-[[Text Colour | colour | #4D4D4D]]
+Declare Sitecore CDP Template Variables
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) | Arial|{group:  General}]];
+[[Text Color | colour | #4D4D4D | {group: Text Configuration }]]
+[[X Color | colour | #f88  | {group: Closing Button Configuration}]]
+[[Background Color| colour | #f88  | {group: General}]]
 */
 
-#bx-transition-card {
+/* The following experience is populated with a unique variant identifier: { { ref } }
+ when deployed to ensure CSS does not impact styling of other elements. */
+
+
+/* experience container styling */
+#sc-{{ref}} #sc-transition-card {
     position: fixed;
-    width: 435px;
-    right: 0;
+    width: [[Pop-up size (width) in percentage | enum(30, 40, 50)| 30 | {group: General}]]%;
+    height: [[Pop-up size (height) in px | enum(300, 400, 500)| 400 | {group: General}]]px;
+    [[ Position | enum(Left, Right)| Right|{  group: General }]]: 5px;
     bottom: -1000px;
     z-index: 999999;
     transition: bottom .6s ease-in-out;
     margin-bottom: 0;
-    border-radius: 4px;
-    background-color: #fff;
+    border-radius: [[ Pop-up Border-radius in px | number| 5|{ group: General }]]px;
+    background: [[Background Color]];
     overflow: hidden;
     box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0,0,0,.1);
-}
-
-#bx-transition-card.open {
-    bottom: 0;
-}
-
-#bx-transition-card .img-container {
-    width: 100%;
-    height: 250px;
-}
-
-#bx-transition-card .img-container__image {
-    margin: 0;
-    background: [[Background Colour]];
-    height: 100%;
+    max-width: 99%;
+    min-width: 300px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    background-image: url("[[Image URL | string || {required:true,order:5}]]");
+    flex-direction:column;
+}
+
+/* position of the corner from the bottom when showed */
+#sc-{{ref}} #sc-transition-card.open {
+    bottom: 5px;
+}
+
+/* image container  */
+#sc-{{ref}} .img-container {
+    width: 100%;
+    flex-basis: 40%;
+    max-height: 50%;
+}
+
+/* the image to display on top of the experience */
+#sc-{{ref}} .sc-image {
+    margin: 0;
+    background: [[Background Color]];
+    height: 100%;
+    background-image: url("[[Image URL | string || {group: General, required:true}]]");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#bx-transition-card .bx-transition-card__body {
-    padding: 37px 34px;
-}
-
-#bx-transition-card .bx-transition-card__body h3 {
-    margin-top: 28px;
-    line-height: 1.5;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    color: [[Text Colour]];
+/* text and buttons container */
+#sc-{{ref}} .sc-transition-card__body {
+    padding: 0 16px;
+    flex-basis: 60%;
+    overflow: hidden;
+    color: [[Text Color]];
     font-family: [[Font]];
+    text-align: center;
 }
 
-#bx-transition-card .bx-transition-card__body p {
+/* Title */
+#sc-{{ref}} .sc-transition-card__body h3 {
+    font-size: [[ Title size in px | number | 28 | { group: Text Configuration } ]]px;
+    font-weight: bold;
+    margin: 0;
+    padding: 12px 0px 0px ;
+}
+
+/* Description text */
+#sc-{{ref}} .sc-transition-card__body p {
     padding: 12px 0;
     margin: 0;
-    font-size: 16px;
+    font-size: [[ Description size in px | number | 16 | { group: Text Configuration } ]]px;
     line-height: 28px;
     text-align: center;
-    color: [[Text Colour]];
+    color: [[Text Color]];
     font-family: [[Font]];
+
 }
 
-#bx-transition-card .options-container {
+/* buttons container */
+#sc-{{ref}} .sc-options-container {
     display: flex;
     justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
 }
 
-#bx-transition-card .options-container__primary {
-    display: inline-block;
-    border-radius: 4px;
-    color: #fff;
-    background-color: [[CTA Colour]];
-    padding: 10px 30px;
-    cursor: pointer;
-}
-
-#bx-transition-card .options-container__secondary {
+/* basic style for both buttons */
+#sc-{{ref}} .options-btn {
     display: inline-block;
     border: 1px solid #C1C9D0;
     border-radius: 4px;
-    color: #000;
-    background-color: [[Background Colour]];
+    color: [[ Dismiss Button Text Color | colour | #C1C9D0| { required: true, group: Button Configuration } ]];
+    background-color: [[Background Color]];
     padding: 10px 30px;
-    margin-right: 13px;
     cursor: pointer;
+    margin-right:10px;
+
+}
+
+/* CTA button styling */
+#sc-{{ref}} #CTA-accept {
+    background-color: [[ Accept Button Color | colour | #4caf50|{  group: Button Configuration } ]];
+    border:none;
+    margin-right:0px;
+    color: [[ Accept Button Text Color | colour | #fff | {  group: Button Configuration } ]];
+}
+
+/* buttons on hover */
+#sc-{{ref}} .options-btn:hover{
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* close button */
+#sc-{{ref}} .sc-btn-close{
+    background: [[ X Background Color | colour | #fff|{ group: Closing Button Configuration } ]];
+    top: 12px;  
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius:15px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+/* close button right side of X  */
+#sc-{{ref}} .sc-btn-close:after {
+    background: transparent;
+    content: "";
+    height: 20px;
+    border-left: 2px solid [[ X Color ]];
+    position: absolute;
+    margin: auto;
+    transform: rotate(45deg);
+    left:14px;
+}
+/* close button right side of X  */
+#sc-{{ref}} .sc-btn-close:before {
+    background: transparent;
+    content: "";
+    height: 20px;
+    border-left: 2px solid [[ X Color ]];
+    margin: auto;
+    position: absolute;
+    transform: rotate(-45deg);
+    left:14px;
 }
