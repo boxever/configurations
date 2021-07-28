@@ -5,7 +5,7 @@ Declare Sitecore CDP Template Variables
 [[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) | Arial|{group:  General}]];
 [[Text Color | colour | #4D4D4D | {group: Text Configuration }]]
 [[X Color | colour | #f88  | {group: Closing Button Configuration}]]
-[[Background Color| colour | #f88  | {group: General}]]
+[[Background Color| colour | #eee | {group: General}]]
 */
 
 /* The following experience is populated with a unique variant identifier: { { ref } }
@@ -13,7 +13,7 @@ Declare Sitecore CDP Template Variables
 
 
 /* experience container styling */
-#sc-{{ref}} #sc-transition-card {
+#bx-{{ref}} #sc-transition-card {
     position: fixed;
     width: [[Pop-up size (width) in percentage | enum(30, 40, 50)| 30 | {group: General}]]%;
     height: [[Pop-up size (height) in px | enum(300, 400, 500)| 400 | {group: General}]]px;
@@ -33,19 +33,19 @@ Declare Sitecore CDP Template Variables
 }
 
 /* position of the corner from the bottom when showed */
-#sc-{{ref}} #sc-transition-card.open {
+#bx-{{ref}} #sc-transition-card.open {
     bottom: 5px;
 }
 
 /* image container  */
-#sc-{{ref}} .img-container {
+#bx-{{ref}} .img-container {
     width: 100%;
     flex-basis: 40%;
     max-height: 50%;
 }
 
 /* the image to display on top of the experience */
-#sc-{{ref}} .sc-image {
+#bx-{{ref}} .sc-image {
     margin: 0;
     background: [[Background Color]];
     height: 100%;
@@ -56,7 +56,7 @@ Declare Sitecore CDP Template Variables
 }
 
 /* text and buttons container */
-#sc-{{ref}} .sc-transition-card__body {
+#bx-{{ref}} .sc-transition-card__body {
     padding: 0 16px;
     flex-basis: 60%;
     overflow: hidden;
@@ -66,7 +66,7 @@ Declare Sitecore CDP Template Variables
 }
 
 /* Title */
-#sc-{{ref}} .sc-transition-card__body h3 {
+#bx-{{ref}} .sc-transition-card__body h3 {
     font-size: [[ Title size in px | number | 28 | { group: Text Configuration } ]]px;
     font-weight: bold;
     margin: 0;
@@ -74,7 +74,7 @@ Declare Sitecore CDP Template Variables
 }
 
 /* Description text */
-#sc-{{ref}} .sc-transition-card__body p {
+#bx-{{ref}} .sc-transition-card__body p {
     padding: 12px 0;
     margin: 0;
     font-size: [[ Description size in px | number | 16 | { group: Text Configuration } ]]px;
@@ -86,7 +86,7 @@ Declare Sitecore CDP Template Variables
 }
 
 /* buttons container */
-#sc-{{ref}} .sc-options-container {
+#bx-{{ref}} .sc-options-container {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -95,7 +95,7 @@ Declare Sitecore CDP Template Variables
 }
 
 /* basic style for both buttons */
-#sc-{{ref}} .options-btn {
+#bx-{{ref}} .options-btn {
     display: inline-block;
     border: 1px solid #C1C9D0;
     border-radius: 4px;
@@ -108,7 +108,7 @@ Declare Sitecore CDP Template Variables
 }
 
 /* CTA button styling */
-#sc-{{ref}} #CTA-accept {
+#bx-{{ref}} #CTA-accept {
     background-color: [[ Accept Button Color | colour | #4caf50|{  group: Button Configuration } ]];
     border:none;
     margin-right:0px;
@@ -116,13 +116,13 @@ Declare Sitecore CDP Template Variables
 }
 
 /* buttons on hover */
-#sc-{{ref}} .options-btn:hover{
+#bx-{{ref}} .options-btn:hover{
     transform: scale(1.1);
     text-decoration: none;
 }
 
 /* close button */
-#sc-{{ref}} .sc-btn-close{
+#bx-{{ref}} .sc-btn-close{
     background: [[ X Background Color | colour | #fff|{ group: Closing Button Configuration } ]];
     top: 12px;  
     right: 15px;
@@ -136,7 +136,7 @@ Declare Sitecore CDP Template Variables
     cursor: pointer;
 }
 /* close button right side of X  */
-#sc-{{ref}} .sc-btn-close:after {
+#bx-{{ref}} .sc-btn-close:after {
     background: transparent;
     content: "";
     height: 20px;
@@ -147,7 +147,7 @@ Declare Sitecore CDP Template Variables
     left:14px;
 }
 /* close button right side of X  */
-#sc-{{ref}} .sc-btn-close:before {
+#bx-{{ref}} .sc-btn-close:before {
     background: transparent;
     content: "";
     height: 20px;

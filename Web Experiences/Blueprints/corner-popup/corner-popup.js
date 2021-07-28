@@ -8,16 +8,27 @@ if (styleTag) {
 
 insertHTMLAfter("body");
 
+// SC function declaration
+const sendInteractionToSitecoreCDP = function(interactionType) {
+    let eventToSent = {
+        "channel": "WEB",
+        "type": "[[ Experience ID | String | CORNER | {required: true}]]_" + interactionType,
+        "pos": window._boxever_settings.pointOfSale,
+        "browser_id": Boxever.getID(),
+    };
+    Boxever.eventCreate(eventToSent, function (data) { }, 'json');
+}
+
 // show experience on load
-let scContent = document.querySelector("#sc-"+variant.ref+ " #sc-transition-card");
+let scContent = document.querySelector("#bx-"+variant.ref+ " #sc-transition-card");
 setTimeout(function() {
     scContent.classList.add("open");
     sendInteractionToSitecoreCDP("VIEWED");
 });
 
 // declarations
-var scCardClose = document.body.querySelector("#sc-"+variant.ref+ " #CTA-dismiss");
-var scCloseBtn = document.body.querySelector("#sc-"+variant.ref+ " .sc-btn-close");
+var scCardClose = document.body.querySelector("#bx-"+variant.ref+ " #CTA-dismiss");
+var scCloseBtn = document.body.querySelector("#bx-"+variant.ref+ " .sc-btn-close");
 var CTAbtn = scContent.querySelector("#CTA-accept");
 
 // close experience function declaration
@@ -43,13 +54,3 @@ CTAbtn.onclick = function() {
     window.location.href = "[[CTA destination URL | string || {required:true, group: Button Configuration}]]";
 }
 
-// SC function declaration
-const sendInteractionToSitecoreCDP = function(interactionType) {
-    let eventToSent = {
-        "channel": "WEB",
-        "type": "[[ Experience ID | String | CORNER | {required: true}]]_" + interactionType,
-        "pos": window._boxever_settings.pointOfSale,
-        "browser_id": Boxever.getID(),
-    };
-    Boxever.eventCreate(eventToSent, function (data) { }, 'json');
-}
