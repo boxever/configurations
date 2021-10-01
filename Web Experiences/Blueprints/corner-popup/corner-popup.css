@@ -11,7 +11,6 @@ Declare Sitecore CDP Template Variables
 /* The following experience is populated with a unique variant identifier: { { ref } }
  when deployed to ensure CSS does not impact styling of other elements. */
 
-
 /* experience container styling */
 #bx-{{ref}} #sc-transition-card {
     position: fixed;
