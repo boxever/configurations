@@ -35,7 +35,6 @@ Declare Sitecore CDP Template Variables
 #bx-{{ref}} #sc-transition-card.open {
     bottom: 5px;
 }
-
 /* image container  */
 #bx-{{ref}} .img-container {
     width: 100%;
@@ -113,13 +112,11 @@ Declare Sitecore CDP Template Variables
     margin-right:0px;
     color: [[ Accept Button Text Color | colour | #fff | {  group: Button Configuration } ]];
 }
-
 /* buttons on hover */
 #bx-{{ref}} .options-btn:hover{
     transform: scale(1.1);
     text-decoration: none;
 }
-
 /* close button */
 #bx-{{ref}} .sc-btn-close{
     background: [[ X Background Color | colour | #fff|{ group: Closing Button Configuration } ]];
